@@ -1,0 +1,142 @@
+/* Settings page */
+#book_review_settings input.text-input {
+    width: 400px;
+}
+#book_review_settings .custom-links {
+    margin-bottom: 0;
+}
+/* Tooltips */
+#book_review_settings label {
+    /*vertical-align: middle;
+    display: inline-block;*/
+}
+#book_review_settings a.tooltip
+{
+    position: relative;
+    cursor: help;
+    display: inline-block;
+    text-decoration: none;
+    color: #222;
+    outline: none;
+}
+#book_review_settings a.tooltip img {
+    vertical-align: bottom;
+}
+#book_review_settings a.tooltip span
+{
+    visibility: hidden;
+    position: absolute;
+    font-weight: normal;
+    z-index: 999;
+    width: 300px;
+    padding: 5px;
+    margin-left: 5px;
+    border: 2px solid #ccc;
+    opacity: .9;
+    background-color: #ddd;
+    background-image: -webkit-linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+    background-image: -moz-linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+    background-image: -ms-linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+    background-image: -o-linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+    background-image: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,0));
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,.5) inset;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,.5) inset;
+    box-shadow: 0 1px 2px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,.5) inset;
+    text-shadow: 0 1px 0 rgba(255,255,255,.4);
+}
+#book_review_settings a.tooltip:hover span
+{
+    visibility: visible;
+}
+#book_review_settings a.tooltip:link,
+#book_review_settings a.tooltip:visited,
+#book_review_settings a.tooltip:hover,
+#book_review_settings a.tooltip:active {
+    color: #333;
+}
+#book_review_settings .links th {
+    overflow: visible;
+    line-height: normal;
+}
+#book_review_settings .links th span {
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+/* Meta box on Edit Post page. */
+#book-review-meta-box label {
+    width: 20%;
+    padding: 0.83333333333333em;
+    display: inline-block; 
+}
+#book-review-meta-box label.summary {
+    vertical-align: top; 
+}
+#book-review-meta-box input[type="text"],
+#book-review-meta-box #wp-book_review_summary-wrap {
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+}
+#book-review-meta-box select {
+    width: 100px;
+}
+#book-review-meta-box #wp-book_review_summary-wrap {
+    padding-bottom: 0.83333333333333em;
+}
+#book-review-meta-box .upload-image-button {
+    margin-left: 10px;
+}
+#book-review-meta-box img {
+    max-height: 150px;
+    padding-left: 1.66666666666667em;
+    margin-left: 20.438683948156%;
+}
+#book-review-meta-box .required {
+    color: red;
+}
+
+/* Single */
+#book-review {
+    padding: 0.625em;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+#book-review label {
+    font-weight: bold;
+    padding-right: 0.3125em;
+}
+#book-review #book_review_cover_image {
+    float: right;
+    border: 0;
+    max-width: 50%;
+    margin-left: 1em;
+    margin-bottom: 1em;
+}
+#book-review #book_review_rating_image {
+    padding-top: 0.3125em;
+}
+#book-review ul#book-review-links {
+    clear: right;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+#book-review ul#book-review-links li {
+    display: inline-block;
+    padding-right: 1em;
+}
+#book-review ul#book-review-links li a.custom-link {
+    border: 0;
+}
+
+/* Rating on home page */
+.book_review_rating_image {
+    float: left;
+    margin: 0 0.5em 0 0;
+}
