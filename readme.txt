@@ -14,27 +14,28 @@ Enables you to add details such as title, author, cover photo, rating, purchase 
 == Description ==
 
 The WordPress Book Review Plugin adds a *Book Info* section to the *Add New Post* and *Edit Post* pages. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
-1. Title
-1. Series
-1. Author
-1. Publisher
-1. Release Date
-1. Source
-1. Up to five customized URLS (as configured in the settings)
-1. Cover URL
-1. Summary
-1. Rating
+
+* Title
+* Series
+* Author
+* Publisher
+* Release Date
+* Source
+* Up to five customized URLS (as configured in the settings)
+* Cover URL
+* Summary
+* Rating
 
 If the *Book Info* section has been filled out, these details will appear above the post's content.
 
-**Features**
-1. Customizable background and border colors.
-1. Ability to optionally show ratings on the home page.
-1. Use the built-in star rating images or specify your own.
-1. Configure up to five links of your choosing. These can be text-based links or you can provide your own images.
-1. Open your custom links in the same tab or in a new one.
+= Features =
+* Customizable background and border colors.
+* Ability to optionally show ratings on the home page.
+* Use the built-in star rating images or specify your own.
+* Configure up to five links of your choosing. These can be text-based links or you can provide your own images.
+* Open your custom links in the same tab or in a new one.
 
-**Resources**
+= Resources =
 * Full documentation for the WordPress Book Review Plugin can be found on [Book Wookie](http://bookwookie.ca/wordpress-book-review-plugin/).
 * If you have suggestions for a new add-on, feel free to email me at thebookwookie@gmail.com.
 * Follow Book Wookie on [Facebook](https://www.facebook.com/BookWookie), [Twitter](https://twitter.com/BookWookie), or [Google+](https://plus.google.com/u/0/115576325157071227855/posts).
