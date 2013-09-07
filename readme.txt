@@ -15,11 +15,14 @@ Enables you to add details such as title, author, cover photo, rating, purchase 
 
 The WordPress Book Review Plugin adds a *Book Info* section to the *Add New Post* and *Edit Post* pages. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
 
-* Title
+* Title (required)
 * Series
 * Author
+* Genre
 * Publisher
 * Release Date
+* Format
+* Pages
 * Source
 * Up to five customized URLS (as configured in the settings)
 * Cover URL
@@ -29,7 +32,7 @@ The WordPress Book Review Plugin adds a *Book Info* section to the *Add New Post
 If the *Book Info* section has been filled out, these details will appear above the post's content.
 
 = Features =
-* Customizable background and border colors.
+* Customizable background and border colours.
 * Ability to optionally show ratings on the home page.
 * Use the built-in star rating images or specify your own.
 * Configure up to five links of your choosing. These can be text-based links or you can provide your own images.
@@ -41,8 +44,11 @@ If the *Book Info* section has been filled out, these details will appear above 
 * If you have questions or suggestions, please email me at thebookwookie@gmail.com.
 
 = Coming Soon =
-* Book Review Archives by Title - Please let me know if you would like the option to have the archive include only those posts that are assigned to a particular category or tag, or perhaps use some other filter entirely. I'm still trying to decide on the best approach and would love to know how people structure their reviews.
-* Bug Fixing - Include the book's details in the RSS feed as well as on the home page if *Full text* is shown.
+* Archives by Title
+* Archives by Genre
+
+= About Me =
+As a book blogger myself, I have my finger on the pulse of the book blogging community, and so I have a very good sense of what it is that other book bloggers are looking for in a WordPress plugin. I use the Book Review plugin on my own [Book Wookie](http://bookwookie.ca) blog. Please visit if you'd like to see examples of this plugin in action. Feel free to email me at thebookwookie@gmail.com with the address of your own blog as well. I would love to find new blogs to follow and to see my plugin being used elsewhere!
 
 == Installation ==
 
@@ -59,5 +65,16 @@ If the *Book Info* section has been filled out, these details will appear above 
 
 == Changelog ==
 
+= 1.1 =
+* New Fields
+    * Added optional Genre, Format and Pages fields.
+* Bug Fixing
+    * Included the book info above the post's content on the home page if Full Text is being displayed.
+    * Included the book info in the RSS feed.
+
 = 1.0 =
 * Initial release.
+
+== Upgrade Notice ==
+
+Added optional Genre, Format and Pages fields. Bug fixes related to showing the book info on the home page and in the RSS feed.

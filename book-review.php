@@ -2,7 +2,7 @@
 /*
 Plugin Name: Book Review
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
-Version: 1.0
+Version: 1.1
 Description: Add book information such as title, author, publisher and cover photo to enhance your review posts.
 Author: Donna Peplinskie
 Author URI: http://bookwookie.ca
@@ -340,8 +340,7 @@ class BookReview
     
     //Render the book review info for a post.
     public function add_book_review_info($content) {
-	if (is_single()) {
-	    $newContent;
+	if (is_home() || is_single() || is_feed()) {
 	    $values = get_post_custom();
 	    $general = get_option('book_review_general');
 	    $ratings = get_option('book_review_ratings');
@@ -358,8 +357,11 @@ class BookReview
 		$title = $values["book_review_title"][0];
 		$series = $values["book_review_series"][0];
 		$author = $values["book_review_author"][0];
+		$genre = $values["book_review_genre"][0];
 		$publisher = $values["book_review_publisher"][0];
 		$release_date = $values["book_review_release_date"][0];
+		$format = $values["book_review_format"][0];
+		$pages = $values["book_review_pages"][0];
 		$source = $values["book_review_source"][0];	
 		$link1 = esc_url($values["book_review_link1"][0]);
 		$link2 = esc_url($values["book_review_link2"][0]);
@@ -372,21 +374,27 @@ class BookReview
 		$bg_color = $general["book_review_bg_color"];
 		$border_color = $general["book_review_border_color"];
 		
-		if (isset($bg_color) && !empty($bg_color)) {
-		    $bg_style = 'style="background-color: ' . $bg_color . ';';
-		}
-		
-		if (isset($border_color) && !empty($border_color)) {
-		    if (isset($bg_style)) {
-			$bg_style .= ' border: 1px solid ' . $border_color . ';"';
-		    }
-		    else {
-			$bg_style = 'style="border: 1px solid ' . $border_color . ';"';
-		    }
+		//Don't apply inline CSS to an RSS feed.
+		if (is_feed()) {
+		    $bg_style = '';
 		}
 		else {
-		    if (isset($bg_style)) {
-			$bg_style .= '"';
+		    if (isset($bg_color) && !empty($bg_color)) {
+			$bg_style = 'style="background-color: ' . $bg_color . ';';
+		    }
+		    
+		    if (isset($border_color) && !empty($border_color)) {
+			if (isset($bg_style)) {
+			    $bg_style .= ' border: 1px solid ' . $border_color . ';"';
+			}
+			else {
+			    $bg_style = 'style="border: 1px solid ' . $border_color . ';"';
+			}
+		    }
+		    else {
+			if (isset($bg_style)) {
+			    $bg_style .= '"';
+			}
 		    }
 		}
 		
@@ -411,6 +419,11 @@ class BookReview
 		    $book_info .= '<span id="book_review_author">' . $author . '</span><br />';
 		}
 		
+		if (!empty($genre)) {
+		    $book_info .= '<label for="book_review_genre">Genre:</label>';
+		    $book_info .= '<span id="book_review_genre">' . $genre . '</span><br />';
+		}
+		
 		if (!empty($publisher)) {
 		    $book_info .= '<label for="book_review_publisher">Publisher:</label>';
 		    $book_info .= '<span id="book_review_publisher">' . $publisher . '</span><br />';
@@ -419,6 +432,16 @@ class BookReview
 		if (!empty($release_date)) {
 		    $book_info .= '<label for="book_review_release_date">Release Date:</label>';
 		    $book_info .= '<span id="book_review_release_date">' . $release_date . '</span><br />';
+		}
+		
+		if (!empty($format)) {
+		    $book_info .= '<label for="book_review_format">Format:</label>';
+		    $book_info .= '<span id="book_review_format">' . $format . '</span><br />';
+		}
+		
+		if (!empty($pages)) {
+		    $book_info .= '<label for="book_review_pages">Pages:</label>';
+		    $book_info .= '<span id="book_review_pages">' . $pages . '</span><br />';
 		}
 		
 		if (!empty($source)) {

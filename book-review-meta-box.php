@@ -53,7 +53,10 @@ class BookReviewAdmin
 	$title = isset($values['book_review_title']) ? $values['book_review_title'][0] : '';
 	$series = isset($values['book_review_series']) ? $values['book_review_series'][0] : '';
 	$author = isset($values['book_review_author']) ? $values['book_review_author'][0] : '';
+	$genre = isset($values['book_review_genre']) ? $values['book_review_genre'][0] : '';
 	$publisher = isset($values['book_review_publisher']) ? $values['book_review_publisher'][0] : '';
+	$format = isset($values['book_review_format']) ? $values['book_review_format'][0] : '';
+	$pages = isset($values['book_review_pages']) ? $values['book_review_pages'][0] : '';
 	$source = isset($values['book_review_source']) ? $values['book_review_source'][0] : '';
 	$release_date = isset($values['book_review_release_date']) ? $values['book_review_release_date'][0] : '';
 	$cover_url = isset($values['book_review_cover_url']) ? esc_url($values['book_review_cover_url'][0]) : '';	
@@ -77,11 +80,20 @@ class BookReviewAdmin
 	<label for="book_review_author">Author:</label>
 	<input type="text" id="book_review_author" name="book_review_author" value="<?php echo $author; ?>" />
 	<br />
+	<label for="book_review_genre">Genre:</label>
+	<input type="text" id="book_review_genre" name="book_review_genre" value="<?php echo $genre; ?>" />
+	<br />
 	<label for="book_review_publisher">Publisher:</label>
 	<input type="text" id="book_review_publisher" name="book_review_publisher" value="<?php echo $publisher; ?>" />
 	<br />
 	<label for="book_review_release_date">Release Date:</label>
 	<input type="text" id="book_review_release_date" name="book_review_release_date" value="<?php echo $release_date; ?>" />
+	<br />
+	<label for="book_review_format">Format:</label>
+	<input type="text" id="book_review_format" name="book_review_format" value="<?php echo $format; ?>" />
+	<br />
+	<label for="book_review_pages">Pages:</label>
+	<input type="text" id="book_review_pages" name="book_review_pages" value="<?php echo $pages; ?>" />
 	<br />
 	<label for="book_review_source">Source:</label>
 	<input type="text" id="book_review_source" name="book_review_source" value="<?php echo $source; ?>" />
@@ -202,13 +214,22 @@ class BookReviewAdmin
 	    update_post_meta($post_id, 'book_review_series', sanitize_text_field($_POST['book_review_series'])); 
 	    
 	if (isset($_POST['book_review_author']))
-	    update_post_meta($post_id, 'book_review_author', sanitize_text_field($_POST['book_review_author'])); 
+	    update_post_meta($post_id, 'book_review_author', sanitize_text_field($_POST['book_review_author']));
+	    
+	if (isset($_POST['book_review_genre']))
+	    update_post_meta($post_id, 'book_review_genre', sanitize_text_field($_POST['book_review_genre'])); 
 	    
 	if (isset($_POST['book_review_publisher']))
 	    update_post_meta($post_id, 'book_review_publisher', sanitize_text_field($_POST['book_review_publisher'])); 
 	    
 	if (isset($_POST['book_review_release_date']))
 	    update_post_meta($post_id, 'book_review_release_date', sanitize_text_field($_POST['book_review_release_date']));
+	    
+	if (isset($_POST['book_review_format']))
+	    update_post_meta($post_id, 'book_review_format', sanitize_text_field($_POST['book_review_format']));
+	    
+	if (isset($_POST['book_review_pages']))
+	    update_post_meta($post_id, 'book_review_pages', sanitize_text_field($_POST['book_review_pages'])); 
 	    
 	if (isset($_POST['book_review_source']))
 	    update_post_meta($post_id, 'book_review_source', sanitize_text_field($_POST['book_review_source'])); 
