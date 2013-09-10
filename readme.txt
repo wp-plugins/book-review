@@ -57,6 +57,16 @@ As a book blogger myself, I have my finger on the pulse of the book blogging com
 1. Activate the plugin through the *Plugins* menu in WordPress.
 1. Customize the settings by clicking on *Book Review* in the *Settings* menu.
 
+== Frequently Asked Questions ==
+
+= Who is the Book Review plugin for? =
+
+The Book Review plugin is meant to be used by book bloggers and other reviewers who post book reviews to their blog and need an easy way to show the details of that book in each of their review posts.
+
+= What is the Summary field for? =
+
+The Summary field is meant to hold the synopsis or description of the book. It is not where you are intended to write your review. You should write your review in the regular WordPress editor at the top of the page, although if you prefer you can certainly write it inside the Summary editor instead. Be aware that if you do that, the custom links will show at the very bottom of your post, rather than directly below the book's description and cover image.
+
 == Screenshots ==
 
 1. Book Review Settings
