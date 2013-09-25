@@ -66,7 +66,7 @@ The Book Review plugin is meant to be used by book bloggers and other reviewers 
 
 = What is the Synopsis field for? =
 
-The Synopsis field is meant to hold the summary or description of the book. It is not where you are intended to write your review. You should write your review in the regular WordPress editor at the top of the page, although if you prefer you can certainly write it inside the Synopsis editor instead. Be aware that if you do that, the custom links will show at the very bottom of your post, rather than directly below the book's description and cover image.
+The *Synopsis* field is meant to hold the summary or description of the book. It is not where you are intended to write your review. You should write your review in the regular WordPress editor at the top of the page, although if you prefer you can certainly write it inside the *Synopsis* editor instead. Be aware that if you do that, the custom links will show at the very bottom of your post, rather than directly below the book's description and cover image.
 
 == Screenshots ==
 
@@ -77,12 +77,12 @@ The Synopsis field is meant to hold the summary or description of the book. It i
 == Changelog ==
 
 = 1.2 =
-* Added new Review Box Position setting.
-* Renamed Summary field to Synopsis to reduce confusion.
+* Added new *Review Box Position* setting.
+* Renamed *Summary* field to *Synopsis* to reduce confusion.
 
 = 1.1 =
 * New Fields
-    * Added optional Genre, Format and Pages fields.
+    * Added optional *Genre*, *Format* and *Pages* fields.
 * Bug Fixing
     * Included the book info above the post's content on the home page if Full Text is being displayed.
     * Included the book info in the RSS feed.
