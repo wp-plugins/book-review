@@ -2,7 +2,7 @@
 /*
 Plugin Name: Book Review
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
-Version: 1.1
+Version: 1.2
 Description: Add book information such as title, author, publisher and cover photo to enhance your review posts.
 Author: Donna Peplinskie
 Author URI: http://bookwookie.ca
@@ -51,13 +51,24 @@ class BookReview
     
     // Print the menu page itself
     public function show_settings() {
-	$options = get_option($this->option_name);
+	//General
 	$general = get_option('book_review_general');
+	$general_defaults = array(
+	    'book_review_box_position' => 'top'
+	);
+	$general = wp_parse_args($general, $general_defaults);
+	
+	//Rating Images
+	$ratings = get_option('book_review_ratings');
 	$ratings_defaults = array(
 	    'book_review_rating_default' => 1
 	);
-	$ratings = get_option('book_review_ratings', $ratings_defaults);
+	$ratings = wp_parse_args($ratings, $ratings_defaults);
+	
+	//Links
 	$links = get_option('book_review_links');
+	
+	//Tooltip
 	$tooltip = '<img src="' . plugins_url('images/tooltip.gif', __FILE__ ) . '" />';
 	?>
 	<div class="wrap">
@@ -71,6 +82,17 @@ class BookReview
 		    <h3>General</h3>
 		    <table class="form-table">
 			<tbody>
+			    <tr valign="top">
+				<th scope="row">
+				    <label>
+					Review Box Position:&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>Whether to show the review box at the top or bottom of a post.</span></a>
+				    </label>
+				</th>
+				<td>
+				    <input id="book_review_box_position_top" type="radio" name="book_review_general[book_review_box_position]" value="top" <?php echo checked("top", $general['book_review_box_position'], false); ?>"><label for="book_review_box_position_top">Top</label>
+				    <input id="book_review_box_position_bottom" type="radio" name="book_review_general[book_review_box_position]" value="bottom" <?php echo checked("bottom", $general['book_review_box_position'], false); ?>"><label for="book_review_box_position_bottom">Bottom</label>
+				</td>
+			    </tr>
 			    <tr valign="top">
 				<th scope="row">
 				    <label for="book_review_bg_color">Review Box Background Color:</label>
@@ -96,7 +118,7 @@ class BookReview
 			    <tr valign="top">
 				<th scope="row">
 				    <label for="book_review_rating_home">
-					Show rating on home page:&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>Whether or not to show the rating image on your home page</span></a>
+					Show rating on home page:&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>Whether to show the rating image on your home page when summary text is used.</span></a>
 				    </label>
 				</th>
 				<td>
@@ -106,7 +128,7 @@ class BookReview
 			    <tr valign="top">
 				<th scope="row">
 				    <label for="book_review_rating_default">
-					Use default rating images:&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>Whether to use the default rating images or your own</span></a>
+					Use default rating images:&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>Whether to use the default rating images or your own.</span></a>
 				    </label>
 				</th>
 				<td>
@@ -117,7 +139,7 @@ class BookReview
 				<th scope="row">
 				    <h4>
 					<label>
-					    Rating Image URLs&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>To use your own rating images, enter the URL of an image for each rating below (1-5)</span></a>
+					    Rating Image URLs&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>To use your own rating images, enter the URL of an image for each rating below (1-5).</span></a>
 					</label>					
 				    </h4>
 				</th>
@@ -163,7 +185,7 @@ class BookReview
 			    <tr valign="top">
 				<th scope="row">
 				    <label for="book_review_num_links">
-					Number of Links:&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>Select the number of links you would like to add to each book review</span></a>
+					Number of Links:&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>Select the number of links you would like to add to each book review.</span></a>
 				    </label>
 				</th>
 				<td>
@@ -173,7 +195,7 @@ class BookReview
 			    <tr valign="top">
 				<th scope="row">
 				    <label for="book_review_link_target">
-					Open links in new tab:&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>Whether to open links in the same window or in a new tab</span></a>
+					Open links in new tab:&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>Whether to open links in the same window or in a new tab.</span></a>
 				    </label>
 				</th>
 				<td>
@@ -188,7 +210,7 @@ class BookReview
 				<th>
 				    <label>
 					Link Text&nbsp;&nbsp<a href="#" class="tooltip"><?php echo $tooltip ?><span>Enter the text for each link. For every link added here,
-					a new field will be shown in the Book Info section of the Edit Post page.</span></a>
+					a new field will be shown in the Book Info section when editing a post.</span></a>
 				    </label>
 				</th>
 				<th>
@@ -342,8 +364,21 @@ class BookReview
     public function add_book_review_info($content) {
 	if (is_home() || is_single() || is_feed()) {
 	    $values = get_post_custom();
+	    
+	    //General
 	    $general = get_option('book_review_general');
+	    $general_defaults = array(
+		'book_review_box_position' => 'top'
+	    );
+	    $general = wp_parse_args($general, $general_defaults);
+	    
+	    //Rating Images
 	    $ratings = get_option('book_review_ratings');
+	    $ratings_defaults = array(
+		'book_review_rating_default' => 1
+	    );
+	    $ratings = wp_parse_args($ratings, $ratings_defaults);
+	
 	    $options = get_option('book_review_links');
 	    $num_links = $options['book_review_num_links'];
 	    $link_target = $options['book_review_link_target'];
@@ -371,6 +406,7 @@ class BookReview
 		$cover_url = esc_url($values["book_review_cover_url"][0]);
 		$summary = $values["book_review_summary"][0];
 		$rating = $values["book_review_rating"][0];
+		$box_position = $general["book_review_box_position"];
 		$bg_color = $general["book_review_bg_color"];
 		$border_color = $general["book_review_border_color"];
 		
@@ -561,7 +597,13 @@ class BookReview
 		
 		$book_info .= '</ul>';
 		$book_info .= '</div>';
-		$content = $book_info . $content;
+		
+		if ($box_position == "top") {
+		    $content = $book_info . $content;
+		}
+		else {	//Bottom
+		    $content = $content . $book_info;
+		}
 	    }
 	}
 	

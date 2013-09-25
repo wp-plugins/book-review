@@ -1,4 +1,10 @@
 /* Settings page */
+#book_review_settings input[type="radio"] {
+    width: 20px;
+}
+#book_review_settings input[type="radio"]:not(:first-child) {
+    margin-left: 10px;
+}
 #book_review_settings input.text-input {
     width: 400px;
 }
@@ -6,10 +12,6 @@
     margin-bottom: 0;
 }
 /* Tooltips */
-#book_review_settings label {
-    /*vertical-align: middle;
-    display: inline-block;*/
-}
 #book_review_settings a.tooltip
 {
     position: relative;

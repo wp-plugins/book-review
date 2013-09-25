@@ -129,7 +129,7 @@ class BookReviewAdmin
 	
 	<img id="book_review_cover_image" src="<?php echo $cover_url; ?>" style="<?php echo $style; ?>" />
 	<br />
-	<label for="book_review_summary" class="summary">Summary:</label>
+	<label for="book_review_summary" class="summary">Synopsis:</label>
 	<?php wp_editor($summary, "book_review_summary", $args); ?>
 	<br />
 	<label for="book_review_rating">Rating:</label>	
