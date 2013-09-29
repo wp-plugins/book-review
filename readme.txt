@@ -5,11 +5,11 @@ Author URI: http://bookwookie.ca
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.2
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Enables you to add details such as title, author, cover photo, rating, purchase links and more to each of your book review posts.
+Add details such as title, author, cover photo, rating, purchase links and more to each of your book review posts. Show archives by title or genre.
 
 == Description ==
 
@@ -38,15 +38,27 @@ If the *Book Info* section has been filled out, these details will appear in the
 * Use the built-in star rating images or specify your own.
 * Configure up to five links of your choosing. These can be text-based links or you can provide your own images.
 * Open your custom links in the same tab or in a new one.
+* Show an archive of your reviews by title or genre.
+
+= Archives =
+To add archives to a page or post, you can use the `book_review_archives` shortcode. For example, to show archives by title, use the following shortcode format:
+
+`[book_review_archives type="title"]`
+
+This is the default archive type. Only those posts that have the *Title* field filled out will be displayed. Note that titles that start with "A", "An" or "The" will be sorted using the second word in the title. For example, *The Hunger Games* would be shown as *Hunger Games, The*.
+
+To show archives by genre, use the following shortcode format:
+
+`[book_review_archives type="genre"]`
+
+Only those posts that have the *Genre* field filled out will be displayed.
+
+You can control whether or not a particular post should appear in the archives.  There is an *Include post in archives* checkbox in the *Book Info* section of every post, which is selected by default. If you don't want a particular post to be listed in the archives, simply uncheck this box. This setting is especially useful for non-review posts such as cover reveals or book blitzes.
 
 = Resources =
 * Full documentation for the WordPress Book Review Plugin can be found on [Book Wookie](http://bookwookie.ca/wordpress-book-review-plugin/).
 * Follow Book Wookie on [Facebook](https://www.facebook.com/BookWookie), [Twitter](https://twitter.com/BookWookie), or [Google+](https://plus.google.com/u/0/115576325157071227855/posts).
-* If you have questions or suggestions, please email me at thebookwookie@gmail.com.
-
-= Coming Soon =
-* Archives by Title
-* Archives by Genre
+* If you have questions or suggestions, please post them in the forum that can be found on the Support tab.
 
 = About Me =
 As a book blogger myself, I have my finger on the pulse of the book blogging community, and so I have a very good sense of what it is that other book bloggers are looking for in a WordPress plugin. I use the Book Review plugin on my own [Book Wookie](http://bookwookie.ca) blog. Please visit if you'd like to see examples of this plugin in action. Feel free to email me at thebookwookie@gmail.com with the address of your own blog as well. I would love to find new blogs to follow and to see my plugin being used elsewhere!
@@ -68,13 +80,26 @@ The Book Review plugin is meant to be used by book bloggers and other reviewers 
 
 The *Synopsis* field is meant to hold the summary or description of the book. It is not where you are intended to write your review. You should write your review in the regular WordPress editor at the top of the page, although if you prefer you can certainly write it inside the *Synopsis* editor instead. Be aware that if you do that, the custom links will show at the very bottom of your post, rather than directly below the book's description and cover image.
 
+= Why is my title sorting on "A", "An" or "The" in the title archives? =
+
+Titles that start with "A", "An" or "The" should be sorted using the second word in the title. For example, *The Hunger Games* would be shown as *Hunger Games, The*. If you have a post that is not sorting this way, try going back into that post and re-saving it.
+
+= Why is my post not showing up in the genre archives? =
+
+Check to ensure that you have filled out the *Genre* field in the *Book Info* section of the post, and that the *Include post in archives* checkbox is selected.
+
 == Screenshots ==
 
 1. Book Review Settings
 2. Book Info
 3. Book Info on a Sample Post
+4. Archives by Title
+5. Archives by Genre
 
 == Changelog ==
+
+= 1.3 =
+* Added a shortcode for showing archives by title or genre.
 
 = 1.2 =
 * Added new *Review Box Position* setting.
@@ -91,6 +116,9 @@ The *Synopsis* field is meant to hold the summary or description of the book. It
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.3 =
+Added a shortcode for showing archives by title or genre.
 
 = 1.2 =
 Added new Review Box Position setting for controlling the position of the review box.

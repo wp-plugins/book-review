@@ -2,7 +2,7 @@
 /*
 Plugin Name: Book Review
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
-Version: 1.2
+Version: 1.3
 Description: Add book information such as title, author, publisher and cover photo to enhance your review posts.
 Author: Donna Peplinskie
 Author URI: http://bookwookie.ca
@@ -37,6 +37,7 @@ class BookReview
 	
 	add_filter('the_content', array(&$this, 'add_book_review_info'));
 	add_filter('the_excerpt', array(&$this, 'add_rating_to_home'));
+	add_shortcode('book_review_archives', array(&$this, 'handle_shortcode'));
 	
 	if (is_admin()) {
 	    add_action('admin_menu', array(&$this, 'add_menu'));
@@ -44,12 +45,12 @@ class BookReview
 	}
     }
     
-    // Add entry in the settings menu.
+    //Add entry in the settings menu.
     public function add_menu() {
 	add_options_page('Book Review Settings', 'Book Review', 'manage_options', __FILE__, array(&$this, 'show_settings'));
     }
     
-    // Print the menu page itself
+    //Print the menu page itself.
     public function show_settings() {
 	//General
 	$general = get_option('book_review_general');
@@ -253,17 +254,17 @@ class BookReview
 	register_setting('book_review_options', 'book_review_links', array($this, 'validate_links'));
     }
     
-    public function create_rating_image_url_label($args) {
+    private function create_rating_image_url_label($args) {
 	echo $args['stars'] . '-star Image URL:';
     }
     
-    public function create_rating_image_url_field($args) {
+    private function create_rating_image_url_field($args) {
 	$options = get_option('book_review_ratings');
 	
 	echo '<input id="' . $args["id"] .'" type="text" name="book_review_ratings[' . $args["id"] . ']" class="text-input" value="' . esc_url($options[$args["id"]]) . '" />';	
     }
     
-    public function create_num_links_field() {
+    private function create_num_links_field() {
 	$options = get_option('book_review_links');
 	$items = array("0" => "None", "1" => "1", "2" => "2", "3" => "3", "4" => "4", "5" => "5");
 	echo '<select id="book_review_num_links" name="book_review_links[book_review_num_links]" onChange="showLinks(parseInt(this.value));">';
@@ -276,19 +277,19 @@ class BookReview
 	echo "</select>";
     }
     
-    public function create_link_target_field() {
+    private function create_link_target_field() {
 	$options = get_option('book_review_links');
 	
 	echo '<input id="book_review_link_target" type="checkbox" name="book_review_links[book_review_link_target]" value="1" ' . checked(1, $options['book_review_link_target'], false) . '/>';   
     }
     
-    public function create_link_text_field($args) {
+    private function create_link_text_field($args) {
 	$options = get_option('book_review_links');
 		
 	echo '<input id="' . $args["id"] .'" type="text" name="book_review_links[' . $args["id"] . ']" class="text-input" value="' . $options[$args["id"]] . '" />';
     }
     
-    public function create_link_image_field($args) {
+    private function create_link_image_field($args) {
 	$options = get_option('book_review_links');
 	
 	echo '<input id="' . $args["id"] .'" type="text" name="book_review_links[' . $args["id"] . ']" class="text-input" value="' . esc_url($options[$args["id"]]) . '" />';    
@@ -649,7 +650,103 @@ class BookReview
 	
 	return $content;
     }
+    
+    public function handle_shortcode($atts) {
+	global $wpdb;
+	
+	extract(shortcode_atts(array(
+	    'type' => 'title'
+	), $atts));
+	
+	if ($type == 'title') {	    
+	    $query = "
+		SELECT DISTINCT title.post_id, IFNULL(archive.meta_value, 1) AS archivePost, IFNULL(archiveTitle.meta_value, title.meta_value) AS title, author.meta_value AS author
+		FROM wp_postmeta title
+		INNER JOIN wp_posts wp ON title.post_id = wp.ID
+		LEFT OUTER JOIN wp_postmeta archiveTitle ON title.post_id = archiveTitle.post_id AND archiveTitle.meta_key = 'book_review_archive_title'
+		LEFT OUTER JOIN wp_postmeta author ON title.post_id = author.post_id AND author.meta_key = 'book_review_author'
+		LEFT OUTER JOIN wp_postmeta archive ON title.post_id = archive.post_id AND archive.meta_key = 'book_review_archive_post'
+		WHERE title.meta_key = 'book_review_title' AND title.meta_value <> '' AND wp.post_status =  'publish'
+		ORDER BY title";
+	}
+	else if ($type == 'genre') {
+	    $query = "
+		SELECT DISTINCT genre.post_id, IFNULL(archive.meta_value, 1) AS archivePost, IFNULL(archiveTitle.meta_value, title.meta_value) AS title, author.meta_value AS author, genre.meta_value AS genre
+		FROM wp_postmeta genre
+		INNER JOIN wp_posts wp ON genre.post_id = wp.ID
+		LEFT OUTER JOIN wp_postmeta title ON genre.post_id = title.post_id AND title.meta_key = 'book_review_title'
+		LEFT OUTER JOIN wp_postmeta archiveTitle ON genre.post_id = archiveTitle.post_id AND archiveTitle.meta_key = 'book_review_archive_title'
+		LEFT OUTER JOIN wp_postmeta author ON genre.post_id = author.post_id AND author.meta_key = 'book_review_author'
+		LEFT OUTER JOIN wp_postmeta archive ON genre.post_id = archive.post_id AND archive.meta_key = 'book_review_archive_post'
+		WHERE genre.meta_key = 'book_review_genre' AND genre.meta_value <> '' AND wp.post_status =  'publish'
+		ORDER BY genre, title";	    
+	}
+	
+	$results = $wpdb->get_results($query);
+	$html[] = '<div class="book-review-archives">';
+	
+	foreach($results as $result) {
+	    //Only include this post if it has been flagged to be shown in the archive.
+	    if ($result->archivePost == 1) {
+		if ($type == 'title') {
+		    //Get first letter of title.
+		    $current = substr($result->title, 0, 1);
+		    
+		    if (isset($previous) && ($current != $previous)) {
+			//Check if both titles start with a number. In that case, don't end the list. 
+			if (is_numeric($current) && is_numeric($previous)) {
+			    //Do nothing.
+			}
+			else {
+			    $html[] = '</ul>';
+			}
+		    }
+		    
+		    if ($current != $previous) {
+			//Check if both titles start with a number. In that case, don't create a new heading.
+			if (is_numeric($current)) {
+			    if (is_numeric($previous)) {
+				//Do nothing.
+			    }
+			    else {
+				$html[] = '<h4>#</h4>';
+				$html[] = '<ul>';
+			    }
+			}
+			else {
+			    $html[] = '<h4>' . $current . '</h4>';
+			    $html[] = '<ul>';
+			}
+		    }
+		}
+		else {
+		    $current = $result->genre;
+		    
+		    if (isset($previous) && ($current != $previous)) {
+			$html[] = '</ul>';  
+		    }
+		    
+		    if ($current != $previous) {
+			$html[] = '<h4>' . $current . '</h4>';
+			$html[] = '<ul>';
+		    }
+		}
+		
+		$html[] = '<li><a href="'. get_permalink($result->post_id) . '">' . $result->title . '</a>';
+		
+		if (!empty($result->author)) {
+		    $html[] = ' by ' . $result->author . '</li>';
+		}
+		
+		$previous = $current;
+	    }
+	}
+	
+	$html[] = '</div>';
+
+	return implode("\n", $html);
+    }
 }
 
-$bookReview = new BookReview();
+$book_review = new BookReview();
 ?>

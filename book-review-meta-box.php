@@ -62,6 +62,7 @@ class BookReviewAdmin
 	$cover_url = isset($values['book_review_cover_url']) ? esc_url($values['book_review_cover_url'][0]) : '';	
 	$summary = isset($values['book_review_summary']) ? $values['book_review_summary'][0] : '';
 	$rating = isset($values['book_review_rating']) ? $values['book_review_rating'][0] : '';
+	$archive_post = isset($values['book_review_archive_post']) ? $values['book_review_archive_post'][0] : 1;
 	$args = array(
 	    "textarea_rows" => 15,
 	    "media_buttons" => false
@@ -137,7 +138,7 @@ class BookReviewAdmin
 	    <?php
 		$items = array("-1" => "Select...", "1" => "1", "2" => "2", "3" => "3", "4" => "4", "5" => "5");
 		
-		foreach($items as $type => $item) {
+		foreach ($items as $type => $item) {
 		    $selected = ($rating == $type) ? 'selected="selected"' : '';
 		    echo "<option value='" . $type . "' " . $selected . ">" . $item . "</option>";
 		}
@@ -191,11 +192,13 @@ class BookReviewAdmin
 	?>
 	
 	<img id="book_review_rating_image" src="<?php echo $src; ?>" style="<?php echo $style; ?>" />
-	<br />		
+	<label for="book_review_archive_post">Include post in archives:</label>
+	<input id="book_review_archive_post" type="checkbox" name="book_review_archive_post" value="1" <?php echo checked(1, $archive_post, false) ?> />
+	<br />	
 	<?php
     }
     
-    function book_review_save_meta_box($post_id)
+    public function book_review_save_meta_box($post_id)
     {
 	//Bail if we're doing an auto save.
 	if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
@@ -206,9 +209,11 @@ class BookReviewAdmin
 	//If our current user can't edit this post, bail.
 	if (!current_user_can('edit_post')) return;
 	
-	// Make sure your data is set before trying to save it.
-	if (isset($_POST['book_review_title']))
-	    update_post_meta($post_id, 'book_review_title', sanitize_text_field($_POST['book_review_title'])); 
+	//Make sure data is set before trying to save it.
+	if (isset($_POST['book_review_title'])) {
+	    update_post_meta($post_id, 'book_review_title', sanitize_text_field($_POST['book_review_title']));
+	    update_post_meta($post_id, 'book_review_archive_title', $this->get_archive_title());
+	}
 	
 	if (isset($_POST['book_review_series']))
 	    update_post_meta($post_id, 'book_review_series', sanitize_text_field($_POST['book_review_series'])); 
@@ -257,6 +262,26 @@ class BookReviewAdmin
 	    
 	if (isset($_POST['book_review_rating']))
 	    update_post_meta($post_id, 'book_review_rating', $_POST['book_review_rating']);
+	    
+	update_post_meta($post_id, 'book_review_archive_post', $_POST['book_review_archive_post']);
+    }
+    
+    //Move common stopwords to end of Title.
+    private function get_archive_title() {
+	$title = trim($_POST['book_review_title']);
+	$stopwords = array("the ", "a ", "an ");
+
+	foreach ($stopwords as $stopword) {
+	    //Check if first characters of the title is a stop word.
+	    $substring = substr($title, 0, strlen($stopword));
+	    
+	    //Move stopword to the end.
+	    if (strtolower($substring) == $stopword) {
+		return sanitize_text_field(substr($title, strlen($stopword)) . ', ' . $substring);
+	    }
+	}
+	
+	return sanitize_text_field($_POST['book_review_title']);
     }
 }
 ?>
