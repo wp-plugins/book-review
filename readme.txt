@@ -15,7 +15,7 @@ Add details such as title, author, cover photo, rating, purchase links and more 
 
 The WordPress Book Review Plugin adds a *Book Info* section to the *Add New Post* and *Edit Post* pages. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
 
-* Title (required)
+* Title (required) 
 * Series
 * Author
 * Genre
