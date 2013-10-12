@@ -1,11 +1,11 @@
 === Plugin Name ===
 Contributors: Book Wookie
-Tags: book, review, book blog
+Tags: book, review, book review, book blog, book blogger, book blogging
 Author URI: http://bookwookie.ca
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,13 +55,16 @@ Only those posts that have the *Genre* field filled out will be displayed.
 
 You can control whether or not a particular post should appear in the archives.  There is an *Include post in archives* checkbox in the *Book Info* section of every post, which is selected by default. If you don't want a particular post to be listed in the archives, simply uncheck this box. This setting is especially useful for non-review posts such as cover reveals or book blitzes.
 
+= Internationalization =
+If you would like to volunteer to translate this plugin into other languages, please contact me at thebookwookie@gmail.com.
+
 = Resources =
 * Full documentation for the WordPress Book Review Plugin can be found on [Book Wookie](http://bookwookie.ca/wordpress-book-review-plugin/).
 * Follow Book Wookie on [Facebook](https://www.facebook.com/BookWookie), [Twitter](https://twitter.com/BookWookie), or [Google+](https://plus.google.com/u/0/115576325157071227855/posts).
 * If you have questions or suggestions, please post them in the forum that can be found on the Support tab.
 
 = About Me =
-As a book blogger myself, I have my finger on the pulse of the book blogging community, and so I have a very good sense of what it is that other book bloggers are looking for in a WordPress plugin. I use the Book Review plugin on my own [Book Wookie](http://bookwookie.ca) blog. Please visit if you'd like to see examples of this plugin in action. Feel free to email me at thebookwookie@gmail.com with the address of your own blog as well. I would love to find new blogs to follow and to see my plugin being used elsewhere!
+As a book blogger myself, I have my finger on the pulse of the book blogging community, and so I have a very good sense of what it is that other book bloggers are looking for in a WordPress plugin. I use the Book Review plugin on my own [Book Wookie](http://bookwookie.ca) blog. Please visit if you'd like to see examples of this plugin in action.
 
 == Installation ==
 
@@ -98,6 +101,10 @@ Check to ensure that you have filled out the *Genre* field in the *Book Info* se
 
 == Changelog ==
 
+= 1.4 =
+* Added support for internationalization.
+* Fixed a bug in Archives by Title to ignore case when sorting.  
+
 = 1.3 =
 * Added a shortcode for showing archives by title or genre.
 
@@ -116,6 +123,9 @@ Check to ensure that you have filled out the *Genre* field in the *Book Info* se
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.4 =
+Added support for internationalization.
 
 = 1.3 =
 Added a shortcode for showing archives by title or genre.

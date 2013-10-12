@@ -72,31 +72,31 @@ class BookReviewAdmin
 	wp_nonce_field('save_meta_box_nonce', 'book-review-meta-box-nonce');
 	
 	?>
-	<label for="book_review_title">Title<span class="required">*</span>:</label>
+	<label for="book_review_title"><?php _e('Title', 'book-review') ?>:<span class="required">*</span>:</label>
 	<input type="text" id="book_review_title" name="book_review_title" value="<?php echo $title; ?>" />
 	<br />
-	<label for="book_review_series">Series:</label>
+	<label for="book_review_series"><?php _e('Series', 'book-review') ?>:</label>
 	<input type="text" id="book_review_series" name="book_review_series" value="<?php echo $series; ?>" />
 	<br />
-	<label for="book_review_author">Author:</label>
+	<label for="book_review_author"><?php _e('Author', 'book-review') ?>:</label>
 	<input type="text" id="book_review_author" name="book_review_author" value="<?php echo $author; ?>" />
 	<br />
-	<label for="book_review_genre">Genre:</label>
+	<label for="book_review_genre"><?php _e('Genre', 'book-review') ?>:</label>
 	<input type="text" id="book_review_genre" name="book_review_genre" value="<?php echo $genre; ?>" />
 	<br />
-	<label for="book_review_publisher">Publisher:</label>
+	<label for="book_review_publisher"><?php _e('Publisher', 'book-review') ?>:</label>
 	<input type="text" id="book_review_publisher" name="book_review_publisher" value="<?php echo $publisher; ?>" />
 	<br />
-	<label for="book_review_release_date">Release Date:</label>
+	<label for="book_review_release_date"><?php _e('Release Date', 'book-review') ?>:</label>
 	<input type="text" id="book_review_release_date" name="book_review_release_date" value="<?php echo $release_date; ?>" />
 	<br />
-	<label for="book_review_format">Format:</label>
+	<label for="book_review_format"><?php _e('Format', 'book-review') ?>:</label>
 	<input type="text" id="book_review_format" name="book_review_format" value="<?php echo $format; ?>" />
 	<br />
-	<label for="book_review_pages">Pages:</label>
+	<label for="book_review_pages"><?php _e('Pages', 'book-review') ?>:</label>
 	<input type="text" id="book_review_pages" name="book_review_pages" value="<?php echo $pages; ?>" />
 	<br />
-	<label for="book_review_source">Source:</label>
+	<label for="book_review_source"><?php _e('Source', 'book-review') ?>:</label>
 	<input type="text" id="book_review_source" name="book_review_source" value="<?php echo $source; ?>" />
 	<br />
 	
@@ -113,9 +113,9 @@ class BookReviewAdmin
 	    }
 	?>
 	
-	<label for="book_review_cover_url">Cover URL:</label>
+	<label for="book_review_cover_url"><?php _e('Cover URL', 'book-review') ?>:</label>
 	<input type="text" id="book_review_cover_url" name="book_review_cover_url" value="<?php echo $cover_url; ?>" />
-	<a href="#" class="button button-small upload-image-button">Upload Cover</a>
+	<a href="#" class="button button-small upload-image-button"><?php _e('Upload Cover', 'book-review') ?></a>
 	<br />
 	
 	<?php
@@ -130,13 +130,13 @@ class BookReviewAdmin
 	
 	<img id="book_review_cover_image" src="<?php echo $cover_url; ?>" style="<?php echo $style; ?>" />
 	<br />
-	<label for="book_review_summary" class="summary">Synopsis:</label>
+	<label for="book_review_summary" class="summary"><?php _e('Synopsis', 'book-review') ?>:</label>
 	<?php wp_editor($summary, "book_review_summary", $args); ?>
 	<br />
-	<label for="book_review_rating">Rating:</label>	
+	<label for="book_review_rating"><?php _e('Rating', 'book-review') ?>:</label>	
 	<select id="book_review_rating" name="book_review_rating">
 	    <?php
-		$items = array("-1" => "Select...", "1" => "1", "2" => "2", "3" => "3", "4" => "4", "5" => "5");
+		$items = array("-1" => __('Select...', 'book-review'), "1" => "1", "2" => "2", "3" => "3", "4" => "4", "5" => "5");
 		
 		foreach ($items as $type => $item) {
 		    $selected = ($rating == $type) ? 'selected="selected"' : '';
@@ -192,7 +192,7 @@ class BookReviewAdmin
 	?>
 	
 	<img id="book_review_rating_image" src="<?php echo $src; ?>" style="<?php echo $style; ?>" />
-	<label for="book_review_archive_post">Include post in archives:</label>
+	<label for="book_review_archive_post"><?php _e('Include post in archives', 'book-review') ?>:</label>
 	<input id="book_review_archive_post" type="checkbox" name="book_review_archive_post" value="1" <?php echo checked(1, $archive_post, false) ?> />
 	<br />	
 	<?php
@@ -269,15 +269,23 @@ class BookReviewAdmin
     //Move common stopwords to end of Title.
     private function get_archive_title() {
 	$title = trim($_POST['book_review_title']);
-	$stopwords = array("the ", "a ", "an ");
+	$stopwords = array(__('the', 'book-review'), __('a', 'book-review'), __('an', 'book-review'));
+	/* Translations may specify multiple stopwords for each English word. Separate them into a comma-delimited list
+	   in order to avoid a multi-dimensional array. */
+	$stopwords = implode(',', $stopwords);
+	//Now put them back into a one-dimensional array.
+	$stopwords = explode(',', $stopwords);
 
 	foreach ($stopwords as $stopword) {
-	    //Check if first characters of the title is a stop word.
-	    $substring = substr($title, 0, strlen($stopword));
+	    $stopword = trim($stopword);
 	    
-	    //Move stopword to the end.
-	    if (strtolower($substring) == $stopword) {
-		return sanitize_text_field(substr($title, strlen($stopword)) . ', ' . $substring);
+	    /* Check if first characters of the title is a stop word. Add a space at the end of the stopword so that
+	       only full words are matched. */
+	    $substring = substr($title, 0, strlen($stopword) + 1);
+	    
+	    //Move stopword to the end if a match is found.
+	    if (strtolower($substring) == ($stopword . ' ')) {
+		return sanitize_text_field(substr($title, strlen($stopword) + 1) . ', ' . $substring);
 	    }
 	}
 	
