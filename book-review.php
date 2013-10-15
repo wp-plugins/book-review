@@ -2,7 +2,7 @@
 /*
 Plugin Name: Book Review
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
-Version: 1.4
+Version: 1.5
 Description: Add book information such as title, author, publisher and cover photo to enhance your review posts.
 Author: Donna Peplinskie
 Author URI: http://bookwookie.ca

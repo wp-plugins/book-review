@@ -72,7 +72,7 @@ class BookReviewAdmin
 	wp_nonce_field('save_meta_box_nonce', 'book-review-meta-box-nonce');
 	
 	?>
-	<label for="book_review_title"><?php _e('Title', 'book-review') ?>:<span class="required">*</span>:</label>
+	<label for="book_review_title"><?php _e('Title', 'book-review') ?>:<span class="required">*</span></label>
 	<input type="text" id="book_review_title" name="book_review_title" value="<?php echo $title; ?>" />
 	<br />
 	<label for="book_review_series"><?php _e('Series', 'book-review') ?>:</label>

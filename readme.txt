@@ -5,7 +5,7 @@ Author URI: http://bookwookie.ca
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
 Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,10 @@ Only those posts that have the *Genre* field filled out will be displayed.
 You can control whether or not a particular post should appear in the archives.  There is an *Include post in archives* checkbox in the *Book Info* section of every post, which is selected by default. If you don't want a particular post to be listed in the archives, simply uncheck this box. This setting is especially useful for non-review posts such as cover reveals or book blitzes.
 
 = Internationalization =
+This plugin supports the following translations:
+
+* Italian
+
 If you would like to volunteer to translate this plugin into other languages, please contact me at thebookwookie@gmail.com.
 
 = Resources =
@@ -101,6 +105,9 @@ Check to ensure that you have filled out the *Genre* field in the *Book Info* se
 
 == Changelog ==
 
+= 1.5 =
+Added Italian translation files.
+
 = 1.4 =
 * Added support for internationalization.
 * Fixed a bug in Archives by Title to ignore case when sorting.  
@@ -123,6 +130,9 @@ Check to ensure that you have filled out the *Genre* field in the *Book Info* se
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.5 =
+Added Italian translation files.
 
 = 1.4 =
 Added support for internationalization.
