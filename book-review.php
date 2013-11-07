@@ -2,7 +2,7 @@
 /*
 Plugin Name: Book Review
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
-Version: 1.5
+Version: 1.6
 Description: Add book information such as title, author, publisher and cover photo to enhance your review posts.
 Author: Donna Peplinskie
 Author URI: http://bookwookie.ca
@@ -696,6 +696,8 @@ class BookReview
     public function handle_shortcode($atts) {
 	global $wpdb;
 	
+	$prefix = $wpdb->prefix;
+	
 	extract(shortcode_atts(array(
 	    'type' => 'title'
 	), $atts));
@@ -703,23 +705,23 @@ class BookReview
 	if ($type == 'title') {	    
 	    $query = "
 		SELECT DISTINCT title.post_id, IFNULL(archive.meta_value, 1) AS archivePost, IFNULL(archiveTitle.meta_value, title.meta_value) AS title, author.meta_value AS author
-		FROM wp_postmeta title
-		INNER JOIN wp_posts wp ON title.post_id = wp.ID
-		LEFT OUTER JOIN wp_postmeta archiveTitle ON title.post_id = archiveTitle.post_id AND archiveTitle.meta_key = 'book_review_archive_title'
-		LEFT OUTER JOIN wp_postmeta author ON title.post_id = author.post_id AND author.meta_key = 'book_review_author'
-		LEFT OUTER JOIN wp_postmeta archive ON title.post_id = archive.post_id AND archive.meta_key = 'book_review_archive_post'
+		FROM {$prefix}postmeta title
+		INNER JOIN {$prefix}posts wp ON title.post_id = wp.ID
+		LEFT OUTER JOIN {$prefix}postmeta archiveTitle ON title.post_id = archiveTitle.post_id AND archiveTitle.meta_key = 'book_review_archive_title'
+		LEFT OUTER JOIN {$prefix}postmeta author ON title.post_id = author.post_id AND author.meta_key = 'book_review_author'
+		LEFT OUTER JOIN {$prefix}postmeta archive ON title.post_id = archive.post_id AND archive.meta_key = 'book_review_archive_post'
 		WHERE title.meta_key = 'book_review_title' AND title.meta_value <> '' AND wp.post_status =  'publish'
 		ORDER BY title";
 	}
 	else if ($type == 'genre') {
 	    $query = "
 		SELECT DISTINCT genre.post_id, IFNULL(archive.meta_value, 1) AS archivePost, IFNULL(archiveTitle.meta_value, title.meta_value) AS title, author.meta_value AS author, genre.meta_value AS genre
-		FROM wp_postmeta genre
-		INNER JOIN wp_posts wp ON genre.post_id = wp.ID
-		LEFT OUTER JOIN wp_postmeta title ON genre.post_id = title.post_id AND title.meta_key = 'book_review_title'
-		LEFT OUTER JOIN wp_postmeta archiveTitle ON genre.post_id = archiveTitle.post_id AND archiveTitle.meta_key = 'book_review_archive_title'
-		LEFT OUTER JOIN wp_postmeta author ON genre.post_id = author.post_id AND author.meta_key = 'book_review_author'
-		LEFT OUTER JOIN wp_postmeta archive ON genre.post_id = archive.post_id AND archive.meta_key = 'book_review_archive_post'
+		FROM {$prefix}postmeta genre
+		INNER JOIN {$prefix}posts wp ON genre.post_id = wp.ID
+		LEFT OUTER JOIN {$prefix}postmeta title ON genre.post_id = title.post_id AND title.meta_key = 'book_review_title'
+		LEFT OUTER JOIN {$prefix}postmeta archiveTitle ON genre.post_id = archiveTitle.post_id AND archiveTitle.meta_key = 'book_review_archive_title'
+		LEFT OUTER JOIN {$prefix}postmeta author ON genre.post_id = author.post_id AND author.meta_key = 'book_review_author'
+		LEFT OUTER JOIN {$prefix}postmeta archive ON genre.post_id = archive.post_id AND archive.meta_key = 'book_review_archive_post'
 		WHERE genre.meta_key = 'book_review_genre' AND genre.meta_value <> '' AND wp.post_status =  'publish'
 		ORDER BY genre, title";	    
 	}

@@ -4,8 +4,8 @@ Tags: book, review, book review, book blog, book blogger, book blogging
 Author URI: http://bookwookie.ca
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
 Requires at least: 3.5
-Tested up to: 3.6
-Stable tag: 1.5
+Tested up to: 3.7.1
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,7 @@ The WordPress Book Review Plugin adds a *Book Info* section to the *Add New Post
 * Cover URL
 * Synopsis
 * Rating
+* Include post in archives
 
 If the *Book Info* section has been filled out, these details will appear in the post.
 
@@ -61,6 +62,9 @@ This plugin supports the following translations:
 * Italian
 
 If you would like to volunteer to translate this plugin into other languages, please contact me at thebookwookie@gmail.com.
+
+= Coming Soon =
+Ability to show book cover thumbnails and rating images in archives.
 
 = Resources =
 * Full documentation for the WordPress Book Review Plugin can be found on [Book Wookie](http://bookwookie.ca/wordpress-book-review-plugin/).
@@ -105,12 +109,15 @@ Check to ensure that you have filled out the *Genre* field in the *Book Info* se
 
 == Changelog ==
 
+= 1.6 =
+* Bug fixing - Archives now work with multisite.
+
 = 1.5 =
-Added Italian translation files.
+* Added Italian translation files.
 
 = 1.4 =
 * Added support for internationalization.
-* Fixed a bug in Archives by Title to ignore case when sorting.  
+* Bug fixing - Ignore case when sorting archives by title. 
 
 = 1.3 =
 * Added a shortcode for showing archives by title or genre.
@@ -130,6 +137,9 @@ Added Italian translation files.
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.6 =
+Archives now work with multisite.
 
 = 1.5 =
 Added Italian translation files.
