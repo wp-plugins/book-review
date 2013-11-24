@@ -1,11 +1,11 @@
 === Plugin Name ===
-Contributors: Book Wookie
-Tags: book, review, book review, book blog, book blogger, book blogging
+Contributors: Book Wookie, Donna Peplinskie
+Tags: book, review, rating, book review, book blog, book blogger, book blogging
 Author URI: http://bookwookie.ca
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
 Requires at least: 3.5
 Tested up to: 3.7.1
-Stable tag: 1.6
+Stable tag: 1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,6 +54,16 @@ To show archives by genre, use the following shortcode format:
 
 Only those posts that have the *Genre* field filled out will be displayed.
 
+You can optionally display the rating image by adding the `show_rating` attribute. For example:
+
+`[book_review_archives type="title" show_rating="true"]`
+
+In addition, you can optionally display a thumbnail of the cover by adding the `show_cover` attribute. For example: 
+
+`[book_review_archives type="genre" show_cover="true"]`
+
+**Note:** Thumbnails are only used in those themes that support Featured Images. If your theme does not support Featured Images, or if a post does not have a Featured Image set, then scaled-down versions of the full-size covers are used. The images are scaled as per the *Thumbnail size* value in the *Media Settings*. Showing thumbnails in the archive(s) without using Featured Images will result in longer page load times. To aid in determining which images are thumbnails and which are scaled-down versions of the original image, you can click on any cover to see it shown at its true size. If the image is small, then you know a thumbnail is being used. Otherwise, you should go back into that particular post and set the Featured Image.
+
 You can control whether or not a particular post should appear in the archives.  There is an *Include post in archives* checkbox in the *Book Info* section of every post, which is selected by default. If you don't want a particular post to be listed in the archives, simply uncheck this box. This setting is especially useful for non-review posts such as cover reveals or book blitzes.
 
 = Internationalization =
@@ -62,9 +72,6 @@ This plugin supports the following translations:
 * Italian
 
 If you would like to volunteer to translate this plugin into other languages, please contact me at thebookwookie@gmail.com.
-
-= Coming Soon =
-Ability to show book cover thumbnails and rating images in archives.
 
 = Resources =
 * Full documentation for the WordPress Book Review Plugin can be found on [Book Wookie](http://bookwookie.ca/wordpress-book-review-plugin/).
@@ -99,6 +106,10 @@ Titles that start with "A", "An" or "The" should be sorted using the second word
 
 Check to ensure that you have filled out the *Genre* field in the *Book Info* section of the post, and that the *Include post in archives* checkbox is selected.
 
+= Why do the archives take a long time to load? =
+
+If you are showing thumbnails of the book covers in your archives, then you should be aware that thumbnails are only used in those themes that support Featured Images. If your theme does not support Featured Images, or if a post does not have a Featured Image set, then scaled-down versions of the full-size covers are used. The images are scaled down as per the *Thumbnail size* value in the *Media Settings*. Showing thumbnails in the archive(s) without using Featured Images will result in longer page load times. To aid in determining which images are thumbnails and which are scaled-down versions of the original image, you can click on any cover to see it shown at its true size. If the image is small, then you know a thumbnail is being used. Otherwise, you should go back into that particular post and set the Featured Image.
+
 == Screenshots ==
 
 1. Book Review Settings
@@ -108,6 +119,9 @@ Check to ensure that you have filled out the *Genre* field in the *Book Info* se
 5. Archives by Genre
 
 == Changelog ==
+
+= 1.7 =
+* Added ability to show book cover thumbnails and rating images in archives.
 
 = 1.6 =
 * Bug fixing - Archives now work with multisite.
@@ -138,6 +152,9 @@ Check to ensure that you have filled out the *Genre* field in the *Book Info* se
 
 == Upgrade Notice ==
 
+= 1.7 =
+Added ability to show book cover thumbnails and rating images in archives.
+
 = 1.6 =
 Archives now work with multisite.
 
@@ -155,3 +172,6 @@ Added new Review Box Position setting for controlling the position of the review
 
 = 1.1 =
 Added optional Genre, Format and Pages fields. Bug fixes related to showing the book info on the home page and in the RSS feed.
+
+= 1.0 =
+Initial release.

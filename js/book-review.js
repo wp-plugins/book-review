@@ -24,7 +24,6 @@ jQuery(document).ready(function($) {
     
         //When an image is selected, run a callback.
         file_frame.on("select", function() {
-            //We set multiple to false so only get one image from the uploader
             attachment = file_frame.state().get("selection").first().toJSON();
             jQuery("#book_review_cover_url").val(attachment.url);
             jQuery("#book_review_cover_image").attr("src", attachment.url).show();

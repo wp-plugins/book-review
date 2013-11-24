@@ -142,3 +142,24 @@
     float: left;
     margin: 0 0.5em 0 0;
 }
+
+/* Archives */
+.book-review-archives ul.thumbs {
+    padding: 0;
+    list-style-type: none;
+}
+.book-review-archives ul.thumbs li {
+    padding: 10px;
+    overflow: hidden;
+}
+.book-review-archives ul.thumbs li img {
+    float: left;
+    margin: 0 15px 0 0 ;
+}
+.book-review-archives ul.thumbs li h5 {
+    font-size: 1em;
+    margin: 0;
+}
+.book-review-archives ul p {
+    margin: 5px 0;
+}
