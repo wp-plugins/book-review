@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: Book Wookie, Donna Peplinskie
+Contributors: BookWookie, donnapep
 Tags: book, review, rating, book review, book blog, book blogger, book blogging
 Author URI: http://bookwookie.ca
 Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
