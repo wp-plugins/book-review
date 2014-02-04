@@ -75,7 +75,7 @@ If you would like to volunteer to translate this plugin into other languages, pl
 
 = Resources =
 * Full documentation for the WordPress Book Review Plugin can be found on my [blog](http://donnapeplinskie.com/wordpress-book-review-plugin/).
-* Follow me on [Google+](https://plus.google.com/u/0/+DonnaPeplinskie/posts), [Twitter](https://twitter.com/donnapep) or [LinkedIn](ca.linkedin.com/in/donnapeplinskie/).
+* Follow me on [Google+](https://plus.google.com/u/0/+DonnaPeplinskie/posts), [Twitter](https://twitter.com/donnapep) or [LinkedIn](http://www.linkedin.com/in/donnapeplinskie).
 * If you have questions or suggestions, please post them in the forum that can be found on the Support tab.
 
 = About Me =
