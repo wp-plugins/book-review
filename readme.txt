@@ -1,11 +1,11 @@
 === Plugin Name ===
 Contributors: donnapep
 Tags: book, review, rating, book review, book blog, book blogger, book blogging
-Author URI: http://bookwookie.ca
-Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
+Author URI: http://donnapeplinskie.com
+Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
 Requires at least: 3.5
-Tested up to: 3.8
-Stable tag: 1.7
+Tested up to: 3.8.1
+Stable tag: 1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Add details such as title, author, cover photo, rating, purchase links and more 
 
 == Description ==
 
-The WordPress Book Review Plugin adds a *Book Info* section to the *Add New Post* and *Edit Post* pages. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
+The WordPress Book Review Plugin adds a *Book Info* section to regular posts and custom post types. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
 
 * Title (required) 
 * Series
@@ -71,11 +71,11 @@ This plugin supports the following translations:
 
 * Italian
 
-If you would like to volunteer to translate this plugin into other languages, please contact me at thebookwookie@gmail.com.
+If you would like to volunteer to translate this plugin into other languages, please contact me at donnapep@gmail.com.
 
 = Resources =
-* Full documentation for the WordPress Book Review Plugin can be found on [Book Wookie](http://bookwookie.ca/wordpress-book-review-plugin/).
-* Follow Book Wookie on [Facebook](https://www.facebook.com/BookWookie), [Twitter](https://twitter.com/BookWookie), or [Google+](https://plus.google.com/u/0/115576325157071227855/posts).
+* Full documentation for the WordPress Book Review Plugin can be found on my [blog](http://donnapeplinskie.com/wordpress-book-review-plugin/).
+* Follow me on [Google+](https://plus.google.com/u/0/+DonnaPeplinskie/posts), [Twitter](https://twitter.com/donnapep) or [LinkedIn](ca.linkedin.com/in/donnapeplinskie/).
 * If you have questions or suggestions, please post them in the forum that can be found on the Support tab.
 
 = About Me =
@@ -120,6 +120,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 1.8 =
+* Added support for custom post types.
+
 = 1.7 =
 * Added ability to show book cover thumbnails and rating images in archives.
 
@@ -151,6 +154,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.8 =
+* Added support for custom post types.
 
 = 1.7 =
 Added ability to show book cover thumbnails and rating images in archives.

@@ -1,15 +1,15 @@
 <?php
 /*
 Plugin Name: Book Review
-Plugin URI: http://bookwookie.ca/wordpress-book-review-plugin/
-Version: 1.7
+Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
+Version: 1.8
 Description: Add book information such as title, author, publisher and cover photo to enhance your review posts.
 Author: Donna Peplinskie
-Author URI: http://bookwookie.ca
+Author URI: http://donnapeplinskie.com
 License: GPL v3
 
 WordPress Book Review Plugin
-Copyright (C) 2013, Donna Peplinskie - thebookwookie@gmail.com
+Copyright (C) 2013, Donna Peplinskie - donnapep@gmail.com
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

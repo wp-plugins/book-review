@@ -3,38 +3,45 @@
  * Calls the class on the post edit screen.
  */
 function call_BookReviewAdmin() {
-    return new BookReviewAdmin();
+	return new BookReviewAdmin();
 }
 
 if (is_admin()) {
-    add_action('load-post.php', 'call_BookReviewAdmin');
-    add_action('load-post-new.php', 'call_BookReviewAdmin');
+	add_action('load-post.php', 'call_BookReviewAdmin');
+	add_action('load-post-new.php', 'call_BookReviewAdmin');
 }
 
 class BookReviewAdmin {
-    public function __construct() {
+	public function __construct() {
 		add_action('save_post', array(&$this, 'book_review_save_meta_box'));
-        add_action('add_meta_boxes', array(&$this, 'book_review_add_meta_box'));
-    }
+		add_action('add_meta_boxes', array(&$this, 'book_review_add_meta_box'));
+	}
 
-    /**
-     * Adds the meta box container
-     */
-    public function book_review_add_meta_box() {
-        add_meta_box( 
-            'book-review-meta-box',
-            'Book Info',
-            array(&$this, 'book_review_render_meta_box'),
-            'post',
-            'normal',
-            'high'
-        );
-    }
+	/**
+	 * Adds the meta box container to posts and custom post types.
+	 */
+	public function book_review_add_meta_box() {
+		$post_types = get_post_types();
 
-    /**
-     * Callback function to show fields in meta box.
-     */
-    public function book_review_render_meta_box($post) {	
+		foreach ( $post_types as $post_type ) {
+			if ( ($post_type != 'page') && ($post_type != 'attachment') && 
+				($post_type != 'revision') && ($post_type != 'nav_menu_item') ) {
+				add_meta_box( 
+					'book-review-meta-box',
+					'Book Info',
+					array(&$this, 'book_review_render_meta_box'),
+					$post_type,
+					'normal',
+					'high'
+				);
+			}
+		}
+	}
+
+	/**
+	 * Callback function to show fields in meta box.
+	 */
+	public function book_review_render_meta_box($post) {	
 		$values = get_post_custom($post->ID);
 		$links = get_option('book_review_links');
 		$ratings = get_option('book_review_ratings');
@@ -42,7 +49,7 @@ class BookReviewAdmin {
 		$link_urls = array();
 		
 		for ($i = 1; $i <= 5; $i++) {
-		    $link_urls[$i] = isset($values['book_review_link' . $i]) ? esc_url($values['book_review_link' . $i][0]) : '';
+			$link_urls[$i] = isset($values['book_review_link' . $i]) ? esc_url($values['book_review_link' . $i][0]) : '';
 		}
 		
 		$title = isset($values['book_review_title']) ? $values['book_review_title'][0] : '';
@@ -59,8 +66,8 @@ class BookReviewAdmin {
 		$rating = isset($values['book_review_rating']) ? $values['book_review_rating'][0] : '';
 		$archive_post = isset($values['book_review_archive_post']) ? $values['book_review_archive_post'][0] : 1;
 		$args = array(
-		    "textarea_rows" => 15,
-		    "media_buttons" => false
+			"textarea_rows" => 15,
+			"media_buttons" => false
 		);
 		
 		//We'll use this nonce field later on when saving.  
@@ -95,16 +102,16 @@ class BookReviewAdmin {
 		<br />
 		
 		<?php
-		    //Render HTML elements outside of PHP code, otherwise they will be slightly misaligned.
-		    for ($i = 1; $i <= 5; $i++) {
+			//Render HTML elements outside of PHP code, otherwise they will be slightly misaligned.
+			for ($i = 1; $i <= 5; $i++) {
 				if ($links['book_review_link_text' . $i] && ($num_links >= $i)) { ?>
-				    <label for="<?php echo 'book_review_link' . $i; ?>">
+					<label for="<?php echo 'book_review_link' . $i; ?>">
 						<?php echo $links["book_review_link_text" . $i]; ?> URL:
-				    </label>
-				    <input type="text" id="<?php echo 'book_review_link' . $i; ?>" name="<?php echo 'book_review_link' . $i; ?>" value="<?php echo $link_urls[$i]; ?>" />
-				    <br />
+					</label>
+					<input type="text" id="<?php echo 'book_review_link' . $i; ?>" name="<?php echo 'book_review_link' . $i; ?>" value="<?php echo $link_urls[$i]; ?>" />
+					<br />
 				<?php } 
-		    }
+			}
 		?>
 		
 		<label for="book_review_cover_url"><?php _e('Cover URL', 'book-review') ?>:</label>
@@ -113,13 +120,13 @@ class BookReviewAdmin {
 		<br />
 		
 		<?php
-		    //Show the image preview.
-		    if ($cover_url == "") {
+			//Show the image preview.
+			if ($cover_url == "") {
 				$style = 'display: none;';
-		    }
-		    else {
+			}
+			else {
 				$style = 'display: block;';
-		    }	    
+			}	    
 		?>
 		
 		<img id="book_review_cover_image" src="<?php echo $cover_url; ?>" style="<?php echo $style; ?>" />
@@ -129,60 +136,60 @@ class BookReviewAdmin {
 		<br />
 		<label for="book_review_rating"><?php _e('Rating', 'book-review') ?>:</label>	
 		<select id="book_review_rating" name="book_review_rating">
-		    <?php
+			<?php
 				$items = array("-1" => __('Select...', 'book-review'), "1" => "1", "2" => "2", "3" => "3", "4" => "4", "5" => "5");
 				
 				foreach ($items as $type => $item) {
-				    $selected = ($rating == $type) ? 'selected="selected"' : '';
-				    echo "<option value='" . $type . "' " . $selected . ">" . $item . "</option>";
+					$selected = ($rating == $type) ? 'selected="selected"' : '';
+					echo "<option value='" . $type . "' " . $selected . ">" . $item . "</option>";
 				}
-		    ?>
+			?>
 		</select>
 		<br />
 		
 		<?php
-		    if ($ratings['book_review_rating_default'] == "1") {
+			if ($ratings['book_review_rating_default'] == "1") {
 				if ($rating == "1") {
-				    $src = plugins_url('images/one-star.png', __FILE__ );
+					$src = plugins_url('images/one-star.png', __FILE__ );
 				}
 				else if ($rating == "2") {
-				    $src = plugins_url('images/two-star.png', __FILE__ );
+					$src = plugins_url('images/two-star.png', __FILE__ );
 				}
 				else if ($rating == "3") {
-				    $src = plugins_url('images/three-star.png', __FILE__ );
+					$src = plugins_url('images/three-star.png', __FILE__ );
 				}
 				else if ($rating == "4") {
-				    $src = plugins_url('images/four-star.png', __FILE__ );
+					$src = plugins_url('images/four-star.png', __FILE__ );
 				}
 				else if ($rating == "5") {
-				    $src = plugins_url('images/five-star.png', __FILE__ );
+					$src = plugins_url('images/five-star.png', __FILE__ );
 				}			
-		    }
-		    else {
+			}
+			else {
 				if ($rating == "1") {
-				    $src = $ratings['book_review_rating_image1'];
+					$src = $ratings['book_review_rating_image1'];
 				}
 				else if ($rating == "2") {
-				    $src = $ratings['book_review_rating_image2'];
+					$src = $ratings['book_review_rating_image2'];
 				}
 				else if ($rating == "3") {
-				    $src = $ratings['book_review_rating_image2'];
+					$src = $ratings['book_review_rating_image2'];
 				}
 				else if ($rating == "4") {
-				    $src = $ratings['book_review_rating_image2'];
+					$src = $ratings['book_review_rating_image2'];
 				}
 				else if ($rating == "5") {
-				    $src = $ratings['book_review_rating_image2'];
+					$src = $ratings['book_review_rating_image2'];
 				}
-		    }
-		    
-		    //Show the rating image.
-		    if (isset($src)) {
+			}
+			
+			//Show the rating image.
+			if (isset($src)) {
 				$style = 'display: block;';
-		    }
-		    else {
+			}
+			else {
 				$style = 'display: none;';
-		    }	    
+			}	    
 		?>
 		
 		<img id="book_review_rating_image" src="<?php echo $src; ?>" style="<?php echo $style; ?>" />
@@ -190,9 +197,9 @@ class BookReviewAdmin {
 		<input id="book_review_archive_post" type="checkbox" name="book_review_archive_post" value="1" <?php echo checked(1, $archive_post, false) ?> />
 		<br />	
 		<?php
-    }
-    
-    public function book_review_save_meta_box($post_id) {
+	}
+	
+	public function book_review_save_meta_box($post_id) {
 	//Bail if we're doing an auto save.
 		if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
 		
@@ -204,63 +211,63 @@ class BookReviewAdmin {
 		
 		//Make sure data is set before trying to save it.
 		if (isset($_POST['book_review_title'])) {
-		    update_post_meta($post_id, 'book_review_title', sanitize_text_field($_POST['book_review_title']));
-		    update_post_meta($post_id, 'book_review_archive_title', $this->get_archive_title());
+			update_post_meta($post_id, 'book_review_title', sanitize_text_field($_POST['book_review_title']));
+			update_post_meta($post_id, 'book_review_archive_title', $this->get_archive_title());
 		}
 		
 		if (isset($_POST['book_review_series']))
-		    update_post_meta($post_id, 'book_review_series', sanitize_text_field($_POST['book_review_series'])); 
-		    
+			update_post_meta($post_id, 'book_review_series', sanitize_text_field($_POST['book_review_series'])); 
+			
 		if (isset($_POST['book_review_author']))
-		    update_post_meta($post_id, 'book_review_author', sanitize_text_field($_POST['book_review_author']));
-		    
+			update_post_meta($post_id, 'book_review_author', sanitize_text_field($_POST['book_review_author']));
+			
 		if (isset($_POST['book_review_genre']))
-		    update_post_meta($post_id, 'book_review_genre', sanitize_text_field($_POST['book_review_genre'])); 
-		    
+			update_post_meta($post_id, 'book_review_genre', sanitize_text_field($_POST['book_review_genre'])); 
+			
 		if (isset($_POST['book_review_publisher']))
-		    update_post_meta($post_id, 'book_review_publisher', sanitize_text_field($_POST['book_review_publisher'])); 
-		    
+			update_post_meta($post_id, 'book_review_publisher', sanitize_text_field($_POST['book_review_publisher'])); 
+			
 		if (isset($_POST['book_review_release_date']))
-		    update_post_meta($post_id, 'book_review_release_date', sanitize_text_field($_POST['book_review_release_date']));
-		    
+			update_post_meta($post_id, 'book_review_release_date', sanitize_text_field($_POST['book_review_release_date']));
+			
 		if (isset($_POST['book_review_format']))
-		    update_post_meta($post_id, 'book_review_format', sanitize_text_field($_POST['book_review_format']));
-		    
+			update_post_meta($post_id, 'book_review_format', sanitize_text_field($_POST['book_review_format']));
+			
 		if (isset($_POST['book_review_pages']))
-		    update_post_meta($post_id, 'book_review_pages', sanitize_text_field($_POST['book_review_pages'])); 
-		    
+			update_post_meta($post_id, 'book_review_pages', sanitize_text_field($_POST['book_review_pages'])); 
+			
 		if (isset($_POST['book_review_source']))
-		    update_post_meta($post_id, 'book_review_source', sanitize_text_field($_POST['book_review_source'])); 
-		    
+			update_post_meta($post_id, 'book_review_source', sanitize_text_field($_POST['book_review_source'])); 
+			
 		if (isset($_POST['book_review_link1']))
-		    update_post_meta($post_id, 'book_review_link1', esc_url_raw($_POST['book_review_link1']));
-		    
+			update_post_meta($post_id, 'book_review_link1', esc_url_raw($_POST['book_review_link1']));
+			
 		if (isset($_POST['book_review_link2']))
-		    update_post_meta($post_id, 'book_review_link2', esc_url_raw($_POST['book_review_link2']));
+			update_post_meta($post_id, 'book_review_link2', esc_url_raw($_POST['book_review_link2']));
 		
 		if (isset($_POST['book_review_link3']))
-		    update_post_meta($post_id, 'book_review_link3', esc_url_raw($_POST['book_review_link3']));
-		    
+			update_post_meta($post_id, 'book_review_link3', esc_url_raw($_POST['book_review_link3']));
+			
 		if (isset($_POST['book_review_link4']))
-		    update_post_meta($post_id, 'book_review_link4', esc_url_raw($_POST['book_review_link4']));
-		    
+			update_post_meta($post_id, 'book_review_link4', esc_url_raw($_POST['book_review_link4']));
+			
 		if (isset($_POST['book_review_link5']))
-		    update_post_meta($post_id, 'book_review_link5', esc_url_raw($_POST['book_review_link5']));
-		    
+			update_post_meta($post_id, 'book_review_link5', esc_url_raw($_POST['book_review_link5']));
+			
 		if (isset($_POST['book_review_cover_url']))
-		    update_post_meta($post_id, 'book_review_cover_url', esc_url_raw($_POST['book_review_cover_url']));
-		    
+			update_post_meta($post_id, 'book_review_cover_url', esc_url_raw($_POST['book_review_cover_url']));
+			
 		if (isset($_POST['book_review_summary']))
-		    update_post_meta($post_id, 'book_review_summary', $_POST['book_review_summary']);
-		    
+			update_post_meta($post_id, 'book_review_summary', $_POST['book_review_summary']);
+			
 		if (isset($_POST['book_review_rating']))
-		    update_post_meta($post_id, 'book_review_rating', $_POST['book_review_rating']);
-		    
+			update_post_meta($post_id, 'book_review_rating', $_POST['book_review_rating']);
+			
 		update_post_meta($post_id, 'book_review_archive_post', $_POST['book_review_archive_post']);
-    }
-    
-    //Move common stopwords to end of Title.
-    private function get_archive_title() {
+	}
+	
+	//Move common stopwords to end of Title.
+	private function get_archive_title() {
 		$title = trim($_POST['book_review_title']);
 		$stopwords = array(__('the', 'book-review'), __('a', 'book-review'), __('an', 'book-review'));
 		/* Translations may specify multiple stopwords for each English word. Separate them into a comma-delimited list
@@ -270,19 +277,19 @@ class BookReviewAdmin {
 		$stopwords = explode(',', $stopwords);
 	
 		foreach ($stopwords as $stopword) {
-		    $stopword = trim($stopword);
-		    
-		    /* Check if first characters of the title is a stop word. Add a space at the end of the stopword so that
-		       only full words are matched. */
-		    $substring = substr($title, 0, strlen($stopword) + 1);
-		    
-		    //Move stopword to the end if a match is found.
-		    if (strtolower($substring) == ($stopword . ' ')) {
+			$stopword = trim($stopword);
+			
+			/* Check if first characters of the title is a stop word. Add a space at the end of the stopword so that
+			   only full words are matched. */
+			$substring = substr($title, 0, strlen($stopword) + 1);
+			
+			//Move stopword to the end if a match is found.
+			if (strtolower($substring) == ($stopword . ' ')) {
 				return sanitize_text_field(substr($title, strlen($stopword) + 1) . ', ' . $substring);
-		    }
+			}
 		}
 		
 		return sanitize_text_field($_POST['book_review_title']);
-    }
+	}
 }
 ?>
