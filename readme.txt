@@ -5,7 +5,7 @@ Author URI: http://donnapeplinskie.com
 Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 1.8
+Stable tag: 1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -120,6 +120,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 1.9 =
+* Added Rating column to the manage posts screen.
+
 = 1.8 =
 * Added support for custom post types.
 
@@ -154,6 +157,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.9 =
+* Added Rating column to the manage posts screen.
 
 = 1.8 =
 * Added support for custom post types.

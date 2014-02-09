@@ -2,14 +2,14 @@
 /*
 Plugin Name: Book Review
 Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
-Version: 1.8
+Version: 1.9
 Description: Add book information such as title, author, publisher and cover photo to enhance your review posts.
 Author: Donna Peplinskie
 Author URI: http://donnapeplinskie.com
 License: GPL v3
 
 WordPress Book Review Plugin
-Copyright (C) 2013, Donna Peplinskie - donnapep@gmail.com
+Copyright (C) 2014, Donna Peplinskie - donnapep@gmail.com
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -37,38 +37,40 @@ class BookReview
 		
 		add_filter('the_content', array(&$this, 'add_book_review_info'));
 		add_filter('the_excerpt', array(&$this, 'add_rating_to_home'));
+		add_filter('manage_posts_columns', array(&$this, 'column_heading'));
 		add_shortcode('book_review_archives', array(&$this, 'handle_shortcode'));
 		
 		if (is_admin()) {
-		    add_action('admin_menu', array(&$this, 'add_menu'));
-		    add_action('admin_init', array(&$this, 'init_menu'));
+			add_action('admin_menu', array(&$this, 'add_menu'));
+			add_action('admin_init', array(&$this, 'init_menu'));
 		}
 		
 		add_action('init', array(&$this, 'load_plugin_textdomain'));
-    }
-    
-    public function load_plugin_textdomain() {
+		add_action('manage_posts_custom_column' , array(&$this, 'column_content'), 10, 2);
+	}
+	
+	public function load_plugin_textdomain() {
 		load_plugin_textdomain('book-review', false, dirname(plugin_basename( __FILE__ )) . '/languages');
-    }
-    
-    //Add entry in the settings menu.
-    public function add_menu() {
+	}
+	
+	//Add entry in the settings menu.
+	public function add_menu() {
 		add_options_page('Book Review Settings', 'Book Review', 'manage_options', __FILE__, array(&$this, 'show_settings'));
-    }
-    
-    //Print the menu page itself.
-    public function show_settings() {
+	}
+	
+	//Print the menu page itself.
+	public function show_settings() {
 		//General
 		$general = get_option('book_review_general');
 		$general_defaults = array(
-		    'book_review_box_position' => 'top'
+			'book_review_box_position' => 'top'
 		);
 		$general = wp_parse_args($general, $general_defaults);
 		
 		//Rating Images
 		$ratings = get_option('book_review_ratings');
 		$ratings_defaults = array(
-		    'book_review_rating_default' => 1
+			'book_review_rating_default' => 1
 		);
 		$ratings = wp_parse_args($ratings, $ratings_defaults);
 		
@@ -79,97 +81,97 @@ class BookReview
 		$tooltip = '<img src="' . plugins_url('images/tooltip.gif', __FILE__ ) . '" />'; ?>
 		
 		<div class="wrap">
-		    <?php screen_icon(); ?>
-		    
-		    <h2>Book Review Settings</h2>
-		    <!--<p>Some text describing what the plugin settings do.</p>-->
-		    <div id="book_review_settings" class="postbox-container" style="width: 70%;">
+			<?php screen_icon(); ?>
+			
+			<h2>Book Review Settings</h2>
+			<!--<p>Some text describing what the plugin settings do.</p>-->
+			<div id="book_review_settings" class="postbox-container" style="width: 70%;">
 				<form action="options.php" method="post">
-				    <h3><?php _e('General', 'book-review') ?></h3>
-				    <table class="form-table">
+					<h3><?php _e('General', 'book-review') ?></h3>
+					<table class="form-table">
 						<tbody>
-						    <tr valign="top">
+							<tr valign="top">
 								<th scope="row">
-								    <?php _e('Review Box Position', 'book-review') ?>:&nbsp;&nbsp
+									<?php _e('Review Box Position', 'book-review') ?>:&nbsp;&nbsp
 									<a href="#" class="tooltip">
 										<?php echo $tooltip ?>
-									    <span><?php _e('Whether to show the review box at the top or bottom of a post.', 'book-review') ?></span>
+										<span><?php _e('Whether to show the review box at the top or bottom of a post.', 'book-review') ?></span>
 									</a>
 								</th>
 								<td>
-								    <input id="book_review_box_position_top" type="radio" name="book_review_general[book_review_box_position]" value="top" <?php echo checked("top", $general['book_review_box_position'], false); ?>"><label for="book_review_box_position_top"><?php _e('Top', 'book-review') ?></label>
-								    <input id="book_review_box_position_bottom" type="radio" name="book_review_general[book_review_box_position]" value="bottom" <?php echo checked("bottom", $general['book_review_box_position'], false); ?>"><label for="book_review_box_position_bottom"><?php _e('Bottom', 'book-review') ?></label>
+									<input id="book_review_box_position_top" type="radio" name="book_review_general[book_review_box_position]" value="top" <?php echo checked("top", $general['book_review_box_position'], false); ?>"><label for="book_review_box_position_top"><?php _e('Top', 'book-review') ?></label>
+									<input id="book_review_box_position_bottom" type="radio" name="book_review_general[book_review_box_position]" value="bottom" <?php echo checked("bottom", $general['book_review_box_position'], false); ?>"><label for="book_review_box_position_bottom"><?php _e('Bottom', 'book-review') ?></label>
 								</td>
-						    </tr>
-						    <tr valign="top">
+							</tr>
+							<tr valign="top">
 								<th scope="row">
-								    <label for="book_review_bg_color"><?php _e('Review Box Background Color', 'book-review') ?>:</label>
+									<label for="book_review_bg_color"><?php _e('Review Box Background Color', 'book-review') ?>:</label>
 								</th>
 								<td>
-								    <input id="book_review_bg_color" class="color-picker" type="text" name="book_review_general[book_review_bg_color]" value="<?php echo $general['book_review_bg_color']; ?>">
+									<input id="book_review_bg_color" class="color-picker" type="text" name="book_review_general[book_review_bg_color]" value="<?php echo $general['book_review_bg_color']; ?>">
 								</td>
-						    </tr>
-						    <tr valign="top">
+							</tr>
+							<tr valign="top">
 								<th scope="row">
-								    <label for="book_review_border_color"><?php _e('Review Box Border Color', 'book-review') ?>:</label>
+									<label for="book_review_border_color"><?php _e('Review Box Border Color', 'book-review') ?>:</label>
 								</th>
 								<td>
-								    <input id="book_review_border_color" class="color-picker" type="text" name="book_review_general[book_review_border_color]" value="<?php echo $general['book_review_border_color']; ?>">
+									<input id="book_review_border_color" class="color-picker" type="text" name="book_review_general[book_review_border_color]" value="<?php echo $general['book_review_border_color']; ?>">
 								</td>
-						    </tr>
+							</tr>
 						</tbody>
-				    </table>
-				    <h3><?php _e('Rating Images', 'book-review') ?></h3>
-				    <p><?php _e('Configure the images to use for displaying ratings.', 'book-review') ?></p>
-				    <table class="form-table">
+					</table>
+					<h3><?php _e('Rating Images', 'book-review') ?></h3>
+					<p><?php _e('Configure the images to use for displaying ratings.', 'book-review') ?></p>
+					<table class="form-table">
 						<tbody>
-						    <tr valign="top">
+							<tr valign="top">
 								<th scope="row">
-								    <label for="book_review_rating_home">
+									<label for="book_review_rating_home">
 										<?php _e('Show rating on home page', 'book-review') ?>:&nbsp;&nbsp
 										<a href="#" class="tooltip">
 											<?php echo $tooltip ?>
-										    <span><?php _e('Whether to show the rating image on your home page when summary text is used.', 'book-review') ?></span>
+											<span><?php _e('Whether to show the rating image on your home page when summary text is used.', 'book-review') ?></span>
 										</a>
-								    </label>
+									</label>
 								</th>
 								<td>
-								    <input id="book_review_rating_home" type="checkbox" name="book_review_ratings[book_review_rating_home]" value="1" <?php echo checked(1, $ratings['book_review_rating_home'], false); ?>">
+									<input id="book_review_rating_home" type="checkbox" name="book_review_ratings[book_review_rating_home]" value="1" <?php echo checked(1, $ratings['book_review_rating_home'], false); ?>">
 								</td>
-						    </tr>
-						    <tr valign="top">
+							</tr>
+							<tr valign="top">
 								<th scope="row">
-								    <label for="book_review_rating_default">
+									<label for="book_review_rating_default">
 										<?php _e('Use default rating images', 'book-review') ?>:&nbsp;&nbsp
 										<a href="#" class="tooltip">
 											<?php echo $tooltip ?>
-										    <span><?php _e('Whether to use the default rating images or your own.', 'book-review') ?></span>
+											<span><?php _e('Whether to use the default rating images or your own.', 'book-review') ?></span>
 										</a>
-								    </label>
+									</label>
 								</th>
 								<td>
-								    <input id="book_review_rating_default" type="checkbox" name="book_review_ratings[book_review_rating_default]" value="1" <?php echo checked(1, $ratings['book_review_rating_default'], false); ?> onchange="showRatingImages();">
+									<input id="book_review_rating_default" type="checkbox" name="book_review_ratings[book_review_rating_default]" value="1" <?php echo checked(1, $ratings['book_review_rating_default'], false); ?> onchange="showRatingImages();">
 								</td>
-						    </tr>								
-						    <tr class="rating">
+							</tr>								
+							<tr class="rating">
 								<th scope="row">
-								    <h4>
+									<h4>
 										<label>
-										    <?php _e('Rating Image URLs', 'book-review') ?>&nbsp;&nbsp
-										    <a href="#" class="tooltip">
-										    	<?php echo $tooltip ?>
+											<?php _e('Rating Image URLs', 'book-review') ?>&nbsp;&nbsp
+											<a href="#" class="tooltip">
+												<?php echo $tooltip ?>
 												<span><?php _e('To use your own rating images, enter the URL of an image for each rating below (1-5).', 'book-review') ?></span>
-										    </a>
+											</a>
 										</label>					
-								    </h4>
+									</h4>
 								</th>
 								<td></td>
-						    </tr>
-						    <?php
+							</tr>
+							<?php
 								for ($i = 1; $i <= 5; $i++) { ?>
-								    <tr class="rating" valign="top">
+									<tr class="rating" valign="top">
 										<th scope="row">
-										    <label for="<?php echo 'book_review_rating_image' . $i; ?>">
+											<label for="<?php echo 'book_review_rating_image' . $i; ?>">
 												<?php
 													if ($i == 1) {
 														_e('One-star Image URL', 'book-review');
@@ -192,93 +194,93 @@ class BookReview
 														echo ':';
 													}
 												?>
-										    </label>
+											</label>
 										</th>
 										<td>
-										    <?php $this -> create_rating_image_url_field(array('id' => 'book_review_rating_image' . $i)); ?>								
+											<?php $this -> create_rating_image_url_field(array('id' => 'book_review_rating_image' . $i)); ?>								
 										</td>
-								    </tr>
-						    <?php } ?>
+									</tr>
+							<?php } ?>
 						</tbody>
-				    </table>
-				    <h3><?php _e('Links', 'book-review') ?></h3>
-				    <p><?php _e('Configure the links that you would like to display with every book review.', 'book-review') ?></p>
-				    <table class="custom-links form-table">
+					</table>
+					<h3><?php _e('Links', 'book-review') ?></h3>
+					<p><?php _e('Configure the links that you would like to display with every book review.', 'book-review') ?></p>
+					<table class="custom-links form-table">
 						<tbody>
-						    <tr valign="top">
+							<tr valign="top">
 								<th scope="row">
-								    <label for="book_review_num_links">
+									<label for="book_review_num_links">
 										<?php _e('Number of Links', 'book-review') ?>:&nbsp;&nbsp
 										<a href="#" class="tooltip">
 											<?php echo $tooltip ?>
-										    <span><?php _e('Select the number of links you would like to add to each book review.', 'book-review') ?></span>
+											<span><?php _e('Select the number of links you would like to add to each book review.', 'book-review') ?></span>
 										</a>
-								    </label>
+									</label>
 								</th>
 								<td>
-								    <?php $this -> create_num_links_field(); ?>
+									<?php $this -> create_num_links_field(); ?>
 								</td>
-						    </tr>
-						    <tr valign="top">
+							</tr>
+							<tr valign="top">
 								<th scope="row">
-								    <label for="book_review_link_target">
+									<label for="book_review_link_target">
 										<?php _e('Open links in new tab', 'book-review') ?>:&nbsp;&nbsp
 										<a href="#" class="tooltip">
 											<?php echo $tooltip ?>
-										    <span><?php _e('Whether to open links in the same window or in a new tab.', 'book-review') ?></span>
+											<span><?php _e('Whether to open links in the same window or in a new tab.', 'book-review') ?></span>
 										</a>
-								    </label>
+									</label>
 								</th>
 								<td>
-								    <?php $this -> create_link_target_field(); ?>					
+									<?php $this -> create_link_target_field(); ?>					
 								</td>
-						    </tr>
+							</tr>
 						</tbody>
-				    </table>
-				    <table class="links widefat">
+					</table>
+					<table class="links widefat">
 						<thead>
-						    <tr>
+							<tr>
 								<th>
-								    <label>
+									<label>
 										<?php _e('Link Text', 'book-review') ?>&nbsp;&nbsp
 										<a href="#" class="tooltip">
 											<?php echo $tooltip ?>
-										    <span><?php _e('Enter the text for each link. For every link added here, a new field will be shown in the Book Info section when editing a post.', 'book-review') ?></span>
+											<span><?php _e('Enter the text for each link. For every link added here, a new field will be shown in the Book Info section when editing a post.', 'book-review') ?></span>
 										</a>
-								    </label>
+									</label>
 								</th>
 								<th>
-								    <label>
+									<label>
 										<?php _e('Link Image URL', 'book-review') ?>&nbsp;&nbsp
 										<a href="#" class="tooltip">
 											<?php echo $tooltip ?>
-										    <span><?php _e('If you would like to show links as images, enter the URL of an image for each link below. If you leave this field blank, links will be shown as text.', 'book-review') ?></span>
+											<span><?php _e('If you would like to show links as images, enter the URL of an image for each link below. If you leave this field blank, links will be shown as text.', 'book-review') ?></span>
 										</a>
-								    </label>				    
+									</label>				    
 								</th>       
-						    </tr>
+							</tr>
 						</thead>
 						<tbody>
 							<?php
-							    for ($i = 1; $i <= 5; $i++) { ?>
+								for ($i = 1; $i <= 5; $i++) { ?>
 									<tr id="<?php echo 'link' . $i; ?>">
 									  <td><?php $this -> create_link_text_field(array('id' => 'book_review_link_text' . $i, 'value' => $i, 'label_for' => 'book_review_link_text' . $i)); ?></td>
 									  <td><?php $this -> create_link_image_field(array('id' => 'book_review_link_image' . $i, 'value' => $i, 'label_for' => 'book_review_link_image' . $i)); ?></td>
 									</tr>
 							<?php } ?>	
 						</tbody>
-				    </table>			
-				    <script type="text/javascript">
+					</table>			
+					<script type="text/javascript">
 						showRatingImages();
 						showLinks();
-				    </script>
-				    <?php
+					</script>
+					<?php
 						// Output the hidden fields, nonce etc. This is a group.
 						settings_fields('book_review_options');
 						submit_button();
-				    ?>
+					?>
 				</form>
-		    </div>
+			</div>
 		</div>
 		<?php
 	}
@@ -649,37 +651,36 @@ class BookReview
 		
 			if ((isset($ratings['book_review_rating_home']) != null) && (isset($values["book_review_rating"]) != null)) {
 				$rating = $values["book_review_rating"][0];
-			
+
 				if ($ratings['book_review_rating_home'] == "1") {
 					if (!empty($rating) && ($rating != "-1")) {
-						if ($ratings['book_review_rating_default'] == "1") {
-							if ($rating == "1") {
-								$src = plugins_url('images/one-star.png', __FILE__);
-							}
-							else if ($rating == "2") {
-								$src = plugins_url('images/two-star.png', __FILE__);
-							}
-							else if ($rating == "3") {
-								$src = plugins_url('images/three-star.png', __FILE__);
-							}
-							else if ($rating == "4") {
-								$src = plugins_url('images/four-star.png', __FILE__);
-							}
-							else if ($rating == "5") {
-								$src = plugins_url('images/five-star.png', __FILE__);
-							}
-						}
-						else {
-							$src = $ratings['book_review_rating_image' . $rating];
-						}
-					
-						$content = '<p class="book_review_rating_image"><img src="' . $src . '" />' . $content . '</p>';
+						$content = '<p class="book_review_rating_image"><img src="' . $this->get_rating_image($rating) . '"/>' . $content . '</p>';
 					}
 				}
 			}
 		}
 	
 		return $content;
+	}
+
+	/* Add Rating column to Posts Admin screen. */
+	public function column_heading($columns) {
+		return array_merge( $columns, array('rating' => __('Rating')) );
+	}
+
+	/* Populate Rating column on Posts Admin screen. */
+	public function column_content($column, $post_id) {
+		if ($column == 'rating') {
+			$values = get_post_custom($post_id);
+
+			if (isset($values["book_review_rating"]) != null) {
+				$rating = $values["book_review_rating"][0];
+
+				if (!empty($rating) && ($rating != "-1")) {
+					echo '<img src="' . $this->get_rating_image($rating) . '" class="book_review_column_rating" />';
+				}
+			}
+		}
 	}
 
 	public function handle_shortcode($atts) {
@@ -892,6 +893,33 @@ class BookReview
 		}
 
 		return $dimensions;
+	}
+
+	private function get_rating_image($rating) {
+		$ratings = get_option('book_review_ratings');
+
+		if ($ratings['book_review_rating_default'] == "1") {
+			if ($rating == "1") {
+				$src = plugins_url('images/one-star.png', __FILE__);
+			}
+			else if ($rating == "2") {
+				$src = plugins_url('images/two-star.png', __FILE__);
+			}
+			else if ($rating == "3") {
+				$src = plugins_url('images/three-star.png', __FILE__);
+			}
+			else if ($rating == "4") {
+				$src = plugins_url('images/four-star.png', __FILE__);
+			}
+			else if ($rating == "5") {
+				$src = plugins_url('images/five-star.png', __FILE__);
+			}
+		}
+		else {
+			$src = $ratings['book_review_rating_image' . $rating];
+		}
+
+		return $src;
 	}
 }
 
