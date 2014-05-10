@@ -4,8 +4,8 @@ Tags: book, review, rating, book review, book blog, book blogger, book blogging
 Author URI: http://donnapeplinskie.com
 Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
 Requires at least: 3.5
-Tested up to: 3.8.1
-Stable tag: 1.9
+Tested up to: 3.9.1
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,8 @@ Add details such as title, author, cover photo, rating, purchase links and more 
 
 The WordPress Book Review Plugin adds a *Book Info* section to regular posts and custom post types. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
 
-* Title (required) 
+* ISBN (Only visible if a Google API Key has been entered on the *Book Review Settings* page.)
+* Title (required)
 * Series
 * Author
 * Genre
@@ -30,9 +31,10 @@ The WordPress Book Review Plugin adds a *Book Info* section to regular posts and
 * Rating
 * Include post in archives
 
-If the *Book Info* section has been filled out, these details will appear in the post.
+If the *Book Info* section has been filled out, these details (with the exception of ISBN) will appear in the post.
 
 = Features =
+* Retrieve details about a book automatically from Google Books.
 * Position the review box either above or below the post's content.
 * Customizable background and border colours.
 * Ability to optionally show ratings on the home page when summary text is used.
@@ -58,7 +60,7 @@ You can optionally display the rating image by adding the `show_rating` attribut
 
 `[book_review_archives type="title" show_rating="true"]`
 
-In addition, you can optionally display a thumbnail of the cover by adding the `show_cover` attribute. For example: 
+In addition, you can optionally display a thumbnail of the cover by adding the `show_cover` attribute. For example:
 
 `[book_review_archives type="genre" show_cover="true"]`
 
@@ -120,6 +122,11 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 2.0 =
+* Added ability to auto-populate a book's details using the Google Books API.
+* Added ability to format the Release Date.
+* Refactored entire codebase.
+
 = 1.9 =
 * Added Rating column to the manage posts screen.
 
@@ -137,7 +144,7 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 = 1.4 =
 * Added support for internationalization.
-* Bug fixing - Ignore case when sorting archives by title. 
+* Bug fixing - Ignore case when sorting archives by title.
 
 = 1.3 =
 * Added a shortcode for showing archives by title or genre.
@@ -158,11 +165,16 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Upgrade Notice ==
 
+= 2.0 =
+Added ability to auto-populate a book's details using the Google Books API.
+Added ability to format the Release Date.
+Refactored entire codebase.
+
 = 1.9 =
-* Added Rating column to the manage posts screen.
+Added Rating column to the manage posts screen.
 
 = 1.8 =
-* Added support for custom post types.
+Added support for custom post types.
 
 = 1.7 =
 Added ability to show book cover thumbnails and rating images in archives.
