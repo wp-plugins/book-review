@@ -5,7 +5,7 @@ Author URI: http://donnapeplinskie.com
 Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 2.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -122,6 +122,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 2.0.1 =
+* Bug fixing - Removed obsolete public-facing Javascript and CSS.
+
 = 2.0 =
 * Added ability to auto-populate a book's details using the Google Books API.
 * Added ability to format the Release Date.
@@ -164,6 +167,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.0.1 =
+Removed obsolete public-facing Javascript and CSS.
 
 = 2.0 =
 Added ability to auto-populate a book's details using the Google Books API.
