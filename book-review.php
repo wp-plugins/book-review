@@ -1,12 +1,8 @@
 <?php
 /**
- * The WordPress Plugin Boilerplate.
- *
- * A foundation off of which to build well-documented WordPress plugins that
- * also follow WordPress Coding Standards and PHP best practices.
  *
  * @package   Book_Review
- * @author    Donna Peplinskie <donnapep@gmail.com>
+ * @author    Donna Peplinskie <thebookwookie@gmail.com>
  * @license   GPL-2.0+
  * @link      http://donnapeplinskie.com
  * @copyright 2014 Donna Peplinskie
@@ -15,7 +11,7 @@
  * Plugin Name:       Book Review
  * Plugin URI:        http://donnapeplinskie.com/wordpress-book-review-plugin/
  * Description:       Add book information such as title, author, publisher and cover photo to enhance your review posts.
- * Version:           2.0.1
+ * Version:           2.0.2
  * Author:            Donna Peplinskie
  * Author URI:        http://donnapeplinskie.com
  * Text Domain:       book-review

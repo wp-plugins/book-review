@@ -530,6 +530,7 @@ class Book_Review_Admin {
 	 * @since    2.0
 	 */
 	public function render_links() {
+		$values = get_post_custom($post->ID);
 		$links = get_option( 'book_review_links' );
 		$num_links = $links['book_review_num_links'];
 

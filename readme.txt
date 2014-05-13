@@ -5,7 +5,7 @@ Author URI: http://donnapeplinskie.com
 Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
 Requires at least: 3.5
 Tested up to: 3.9.1
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,37 +43,13 @@ If the *Book Info* section has been filled out, these details (with the exceptio
 * Open your custom links in the same tab or in a new one.
 * Show an archive of your reviews by title or genre.
 
-= Archives =
-To add archives to a page or post, you can use the `book_review_archives` shortcode. For example, to show archives by title, use the following shortcode format:
-
-`[book_review_archives type="title"]`
-
-This is the default archive type. Only those posts that have the *Title* field filled out will be displayed. Note that titles that start with "A", "An" or "The" will be sorted using the second word in the title. For example, *The Hunger Games* would be shown as *Hunger Games, The*.
-
-To show archives by genre, use the following shortcode format:
-
-`[book_review_archives type="genre"]`
-
-Only those posts that have the *Genre* field filled out will be displayed.
-
-You can optionally display the rating image by adding the `show_rating` attribute. For example:
-
-`[book_review_archives type="title" show_rating="true"]`
-
-In addition, you can optionally display a thumbnail of the cover by adding the `show_cover` attribute. For example:
-
-`[book_review_archives type="genre" show_cover="true"]`
-
-**Note:** Thumbnails are only used in those themes that support Featured Images. If your theme does not support Featured Images, or if a post does not have a Featured Image set, then scaled-down versions of the full-size covers are used. The images are scaled as per the *Thumbnail size* value in the *Media Settings*. Showing thumbnails in the archive(s) without using Featured Images will result in longer page load times. To aid in determining which images are thumbnails and which are scaled-down versions of the original image, you can click on any cover to see it shown at its true size. If the image is small, then you know a thumbnail is being used. Otherwise, you should go back into that particular post and set the Featured Image.
-
-You can control whether or not a particular post should appear in the archives.  There is an *Include post in archives* checkbox in the *Book Info* section of every post, which is selected by default. If you don't want a particular post to be listed in the archives, simply uncheck this box. This setting is especially useful for non-review posts such as cover reveals or book blitzes.
-
 = Internationalization =
 This plugin supports the following translations:
 
 * Italian
+* Spanish
 
-If you would like to volunteer to translate this plugin into other languages, please contact me at donnapep@gmail.com.
+If you would like to volunteer to translate this plugin into other languages, please contact me at thebookwookie@gmail.com.
 
 = Resources =
 * Full documentation for the WordPress Book Review Plugin can be found on my [blog](http://donnapeplinskie.com/wordpress-book-review-plugin/).
@@ -122,6 +98,10 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 2.0.2 =
+* Added Spanish translation files.
+* Bug fixing - Fixed issue with URLs not saving for posts.
+
 = 2.0.1 =
 * Bug fixing - Removed obsolete public-facing Javascript and CSS.
 
@@ -167,6 +147,10 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.0.2 =
+Added Spanish translation files.
+Fixed issue with URLs not saving for posts.
 
 = 2.0.1 =
 Removed obsolete public-facing Javascript and CSS.

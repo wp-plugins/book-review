@@ -228,7 +228,7 @@
 								<?php _e( 'Google API Key', $this->plugin_slug ) ?>:
 								<a href="#" class="tooltip">
 									<?php echo $tooltip ?>
-									<span><?php _e( 'Your Google API key obtained from the Google APIs Console.', $this->plugin_slug ) ?></span>
+									<span><?php _e( 'Your Google API key obtained from the Google Developers Console.', $this->plugin_slug ) ?></span>
 								</a>
 							</label>
 						</th>
