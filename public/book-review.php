@@ -331,55 +331,58 @@ class Book_Review {
 					}
 				}
 
-				$book_info = '<div id="book-review"' . $bg_style . '>';
+				$book_info = '<div itemscope itemtype="http://schema.org/Book" id="book-review"' . $bg_style . '>';
 
 				if (!empty($cover_url)) {
-					$book_info .= '<img id="book_review_cover_image" src="' . $cover_url . '" alt="' . $title . ' Book Cover ' . '" />';
+					$book_info .= '<img itemprop="image" id="book_review_cover_image" src="' .
+						$cover_url . '" alt="' . $title . ' Book Cover ' . '" />';
 				}
 
 				if (!empty($title)) {
-					$book_info .= '<label for="book_review_title">' . __('Title', 'book-review') . ':</label>';
-					$book_info .= '<span id="book_review_title">' . $title . '</span><br />';
+					$book_info .= '<label for="book_review_title">' . __('Title', 'book-review') . ':</label>' .
+						'<span itemprop="name" id="book_review_title">' . $title . '</span><br />';
 				}
 
 				if (!empty($series)) {
-					$book_info .= '<label for="book_review_series">' . __('Series', 'book-review') . ':</label>';
-					$book_info .= '<span id="book_review_series">' . $series . '</span><br />';
+					$book_info .= '<label for="book_review_series">' . __('Series', 'book-review') . ':</label>' .
+						'<span id="book_review_series">' . $series . '</span><br />';
 				}
 
 				if (!empty($author)) {
-					$book_info .= '<label for="book_review_author">' . __('Author', 'book-review') . ':</label>';
-					$book_info .= '<span id="book_review_author">' . $author . '</span><br />';
+					$book_info .= '<label for="book_review_author">' . __('Author', 'book-review') . ':</label>' .
+						'<span itemprop="author" itemscope="" itemtype="http://schema.org/Person" id="book_review_author">' .
+						'<span itemprop="name">' . $author . '</span></span><br />';
 				}
 
 				if (!empty($genre)) {
-					$book_info .= '<label for="book_review_genre">' . __('Genre', 'book-review') . ':</label>';
-					$book_info .= '<span id="book_review_genre">' . $genre . '</span><br />';
+					$book_info .= '<label for="book_review_genre">' . __('Genre', 'book-review') . ':</label>' .
+						'<span itemprop="genre" id="book_review_genre">' . $genre . '</span><br />';
 				}
 
 				if (!empty($publisher)) {
-					$book_info .= '<label for="book_review_publisher">' . __('Publisher', 'book-review') . ':</label>';
-					$book_info .= '<span id="book_review_publisher">' . $publisher . '</span><br />';
+					$book_info .= '<label for="book_review_publisher">' . __('Publisher', 'book-review') . ':</label>' .
+						'<span itemprop="publisher" id="book_review_publisher">' . $publisher . '</span><br />';
 				}
 
 				if (!empty($release_date)) {
-					$book_info .= '<label for="book_review_release_date">' . __('Release Date', 'book-review') . ':</label>';
-					$book_info .= '<span id="book_review_release_date">' . $release_date . '</span><br />';
+					$book_info .= '<label for="book_review_release_date">' . __('Release Date', 'book-review') . ':</label>' .
+						'<meta itemprop="datePublished" content="' . date( "Y-m-d", strtotime( $release_date ) ) . '">' .
+						'<span id="book_review_release_date">' . $release_date . '</span><br />';
 				}
 
 				if (!empty($format)) {
-					$book_info .= '<label for="book_review_format">' . __('Format', 'book-review') . ':</label>';
-					$book_info .= '<span id="book_review_format">' . $format . '</span><br />';
+					$book_info .= '<label for="book_review_format">' . __('Format', 'book-review') . ':</label>' .
+						'<span itemprop="bookFormatType" id="book_review_format">' . $format . '</span><br />';
 				}
 
 				if (!empty($pages)) {
-					$book_info .= '<label for="book_review_pages">' . __('Pages', 'book-review') . ':</label>';
-					$book_info .= '<span id="book_review_pages">' . $pages . '</span><br />';
+					$book_info .= '<label for="book_review_pages">' . __('Pages', 'book-review') . ':</label>' .
+						'<span itemprop="numberOfPages" id="book_review_pages">' . $pages . '</span><br />';
 				}
 
 				if (!empty($source)) {
-					$book_info .= '<label for="book_review_source">' . __('Source', 'book-review') . ':</label>';
-					$book_info .= '<span id="book_review_source">' . $source . '</span><br />';
+					$book_info .= '<label for="book_review_source">' . __('Source', 'book-review') . ':</label>' .
+						'<span id="book_review_source">' . $source . '</span><br />';
 				}
 
 				if (!empty($rating) && ($rating != -1)) {
@@ -404,13 +407,17 @@ class Book_Review {
 						$src = $ratings['book_review_rating_image' . $rating];
 					}
 
-					$book_info .= '<img id="book_review_rating_image" src="' . $src . '" /><br />';
+					$book_info .= '<div itemprop="review" itemscope itemtype="http://schema.org/Review">' .
+						'<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">' .
+						'<meta itemprop="ratingValue" content="' . $rating . '">' .
+						'<img id="book_review_rating_image" src="' . $src . '" /><br />' .
+						'</div></div>';
 				}
 
 				if (!empty($summary)) {
-					$book_info .= '<br />';
-					$book_info .= '<label for="book_review_summary">' . __('Synopsis', 'book-review') . ':</label>';
-					$book_info .= '<div id="book_review_summary">' . wpautop($summary, true) . '</div>';
+					$book_info .= '<br />' .
+						'<label for="book_review_summary">' . __('Synopsis', 'book-review') . ':</label>' .
+						'<div id="book_review_summary">' . wpautop($summary, true) . '</div>';
 				}
 
 				$book_info .= '<ul id="book-review-links">';
@@ -492,8 +499,7 @@ class Book_Review {
 					$book_info .= '</li>';
 				}
 
-				$book_info .= '</ul>';
-				$book_info .= '</div>';
+				$book_info .= '</ul></div>';
 
 				if ($box_position == "top") {
 					$content = $book_info . $content;
@@ -582,11 +588,11 @@ class Book_Review {
 					//This is faster than adding to the main query. Consider using this approach for other fields instead of adding them to the main query.
 					$values = get_post_custom_values('book_review_cover_url', $result->post_id);
 					$cover_url = $values[0];
-					$thumb = '<a href="' . $cover_url . '"><img src="' . $cover_url . '" style="max-width:' . $size[0] . 'px; max-height:' . $size[1] . 'px;" /></a>';
+					$thumb = '<a href="' . get_permalink($result->post_id) . '"><img src="' . $cover_url . '" style="max-width:' . $size[0] . 'px; max-height:' . $size[1] . 'px;" /></a>';
 				}
 				else {
 					$url = wp_get_attachment_image_src($result->thumb, 'thumbnail');
-					$thumb = '<a href="' . $url[0] . '">' . $thumb . '</a>';
+					$thumb = '<a href="' . get_permalink($result->post_id) . '">' . $thumb . '</a>';
 				}
 
 
