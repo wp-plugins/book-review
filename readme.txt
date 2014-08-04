@@ -14,7 +14,6 @@ Add details such as title, author, cover photo, rating, purchase links and more 
 == Description ==
 
 The WordPress Book Review Plugin adds a *Book Info* section to regular posts and custom post types. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
-
 * ISBN (Only visible if a Google API Key has been entered on the *Book Review Settings* page.)
 * Title (required)
 * Series
@@ -45,7 +44,6 @@ If the *Book Info* section has been filled out, these details (with the exceptio
 
 = Internationalization =
 This plugin supports the following translations:
-
 * Italian
 * Spanish
 * Chinese
@@ -57,6 +55,12 @@ If you would like to volunteer to translate this plugin into other languages, pl
 * Full documentation for the WordPress Book Review Plugin can be found on my [blog](http://donnapeplinskie.com/wordpress-book-review-plugin/).
 * Follow me on [Google+](https://plus.google.com/u/0/+DonnaPeplinskie/posts), [Twitter](https://twitter.com/donnapep) or [LinkedIn](http://www.linkedin.com/in/donnapeplinskie).
 * If you have questions or suggestions, please post them in the forum that can be found on the Support tab.
+
+= About Me =
+* I’m a front-end web developer with a fondness for WordPress. I blog about web development at [donnapeplinskie.com](http://donnapeplinskie.com/).
+* I’m a developer advocate for [Rise Vision](http://risevision.com/).
+* I’m author of the [WordPress Book Review Plugin](http://wordpress.org/plugins/book-review/) and [WordPress Date and Time Widget](http://wordpress.org/plugins/date-and-time-widget/).
+* I’m founder and contributor of the [Book Wookie](http://bookwookie.ca) book blog.
 
 == Installation ==
 
