@@ -44,11 +44,12 @@ If the *Book Info* section has been filled out, these details (with the exceptio
 * Show an archive of your reviews by title or genre.
 
 = Internationalization =
-This plugin supports the following translations:
-* Italian
-* Spanish
-* Chinese
-* Russian
+This plugin supports the following translations:  
+* Italian  
+* Spanish  
+* Chinese  
+* Russian  
+* German
 
 If you would like to volunteer to translate this plugin into other languages, please contact me at donnapep@gmail.com.
 
