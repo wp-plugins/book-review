@@ -4,8 +4,8 @@ Tags: book, review, rating, book review, book blog, book blogger, book blogging
 Author URI: http://donnapeplinskie.com
 Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
 Requires at least: 3.5
-Tested up to: 3.9.1
-Stable tag: 2.1.2
+Tested up to: 4.0
+Stable tag: 2.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,6 +14,7 @@ Add details such as title, author, cover photo, rating, purchase links and more 
 == Description ==
 
 The WordPress Book Review Plugin adds a *Book Info* section to regular posts and custom post types. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
+
 * ISBN (Only visible if a Google API Key has been entered on the *Book Review Settings* page.)
 * Title (required)
 * Series
@@ -97,6 +98,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 2.1.3 =
+* Added German translation files.
+
 = 2.1.2 =
 * Fixed some text not translating on the Book Review Settings page.
 * Added Russian translation files.
@@ -158,6 +162,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.1.3 =
+Added German translation files.
 
 = 2.1.2 =
 Fixed some text not translating on the Book Review Settings page.
