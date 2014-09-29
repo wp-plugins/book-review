@@ -5,7 +5,7 @@ Author URI: http://donnapeplinskie.com
 Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
 Requires at least: 3.5
 Tested up to: 4.0
-Stable tag: 2.1.4
+Stable tag: 2.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -94,6 +94,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 2.1.5 =
+* Renamed Arabic translation files.
+
 = 2.1.4 =
 * Added Arabic & French translation files.
 * Fixed bug with Google Books API text not translating.
@@ -162,6 +165,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.1.5 =
+Renamed Arabic translation files.
 
 = 2.1.4 =
 Added Arabic & French translation files.
