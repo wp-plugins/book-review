@@ -33,7 +33,7 @@
     </tbody>
   </table>
 
-  <h3>Custom Links</h3>
+  <h3><?php _e( 'Custom Links', $this->plugin_slug ) ?></h3>
   <p>
     <?php _e( 'Configure the links that you would like to display with ' .
       'every book review.', $this->plugin_slug ) ?>
@@ -72,7 +72,7 @@
           </label>
         </th>
         <th class="active">
-          Active
+          <?php _e( 'Active', $this->plugin_slug ) ?>
         </th>
         <!-- <th></th> -->
       </tr>
