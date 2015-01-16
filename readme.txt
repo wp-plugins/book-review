@@ -5,7 +5,7 @@ Author URI: http://donnapeplinskie.com
 Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 2.1.6
+Stable tag: 2.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -35,6 +35,7 @@ If the *Book Info* section has been filled out, these details (with the exceptio
 
 = Features =
 * Retrieve details about a book automatically from Google Books.
+* Show details like rating, author and published date in search engine results pages.
 * Position the review box either above or below the post's content.
 * Customizable background and border colours.
 * Ability to optionally show ratings on the home page when summary text is used.
@@ -91,14 +92,18 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 3. Book Info on a Sample Post
 4. Archives by Title
 5. Archives by Genre
+6. Google Search Results Page
 
 == Changelog ==
+
+= 2.1.7 =
+* Fixed broken schema markup so that ratings, author and published date show in a search engine results page.
 
 = 2.1.6 =
 * Changed Book Review Settings to be a tabbed interface.
 * Removed limit of only being able to configure 5 custom links.
 * Added ability to set individual custom links to inactive.
-* Added custom hooks and filters for developers.
+* Added custom hooks for developers.
 * Added Czech translation files.
 
 = 2.1.5 =
@@ -173,11 +178,14 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Upgrade Notice ==
 
+= 2.1.7 =
+Fixed broken schema markup so that ratings, author and published date show in search engine results pages.
+
 = 2.1.6 =
 Changed Book Review Settings to be a tabbed interface.
 Removed limit of only being able to configure 5 custom links.
 Added ability to set individual custom links to inactive.
-Added custom hooks and filters for developers.
+Added custom hooks for developers.
 Added Czech translation files.
 
 = 2.1.5 =

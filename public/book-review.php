@@ -28,7 +28,7 @@ class Book_Review {
    *
    * @var     string
    */
-  const VERSION = '2.1.6';
+  const VERSION = '2.1.7';
 
   /**
    * Unique identifier for your plugin.
@@ -241,7 +241,7 @@ class Book_Review {
    * Creates the tables that the plugin uses.
    *
    * @since    2.1.6
-   */ 
+   */
   private static function create_tables() {
     global $wpdb;
 
@@ -287,7 +287,7 @@ class Book_Review {
    * Migrates custom links from native tables to custom tables.
    *
    * @since    2.1.6
-   */ 
+   */
   private static function convert_data() {
     global $wpdb;
 
@@ -498,6 +498,8 @@ class Book_Review {
         // Review Box Position
         ob_start();
         include( 'views/public.php' );
+        
+        $content = '<div itemprop="reviewBody">' . $content . '</div>';
 
         if ( $box_position == 'top' ) {
           $content = ob_get_clean() . $content;
