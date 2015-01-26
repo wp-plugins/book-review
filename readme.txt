@@ -5,7 +5,7 @@ Author URI: http://donnapeplinskie.com
 Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 2.1.7
+Stable tag: 2.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,10 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 2.1.8 =
+* Fixed data in Book Info section not updating when field cleared.
+* Restructured code to conform to WordPress Plugin Boilerplate 3.0.
+
 = 2.1.7 =
 * Fixed broken schema markup so that ratings, author and published date show in a search engine results page.
 
@@ -177,6 +181,10 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.1.8 =
+Fixed data in Book Info section not updating when field cleared.
+Restructured code to conform to WordPress Plugin Boilerplate 3.0.
 
 = 2.1.7 =
 Fixed broken schema markup so that ratings, author and published date show in search engine results pages.
