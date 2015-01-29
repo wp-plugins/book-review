@@ -13,46 +13,31 @@ Add details such as title, author, cover photo, rating, purchase links and more 
 
 == Description ==
 
-The WordPress Book Review Plugin adds a *Book Info* section to regular posts and custom post types. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
+The WordPress Book Review plugin saves you time when writing your book review posts – no more copying and pasting or manually entering in a book’s details. Instead, you can focus on the important stuff, like actually writing your reviews!
 
-* ISBN (Only visible if a Google API Key has been entered on the *Book Review Settings* page.)
-* Title (required)
-* Series
-* Author
-* Genre
-* Publisher
-* Release Date
-* Format
-* Pages
-* Source
-* Customized URLS (as defined by the settings)
-* Cover URL
-* Synopsis
-* Rating
-* Include post in archives
+The plugin can also help to increase traffic to your site by creating better-looking search results in Google that will make yours stand out from the rest.
 
-If the *Book Info* section has been filled out, these details (with the exception of ISBN) will appear in the post.
+And, if you’re interested in throwing monetization into the mix, the WordPress Book Review plugin makes that easy too!
 
-= Features =
-* Retrieve details about a book automatically from Google Books.
-* Show details like rating, author and published date in search engine results pages.
-* Position the review box either above or below the post's content.
-* Customizable background and border colours.
-* Ability to optionally show ratings on the home page when summary text is used.
-* Use the built-in star rating images or specify your own.
-* Configure text or image-based custom links.
-* Open your custom links in the same tab or in a new one.
-* Show an archive of your reviews by title or genre.
+Sound pretty good? Then check out the [full documentation](http://donnapeplinskie.com/wordpress-book-review-plugin/#features) to learn more about what the WordPress Book Review plugin can do for you!
 
 = Internationalization =
-This plugin supports the following translations: Arabic, Chinese, Czech, French, German, Italian, Russian, and Spanish.
+This plugin supports the following translations (with thanks to the translators!):
+* Arabic (‫منهل العدّاي‬‎)
+* Chinese (Vahi Chen)
+* Czech (Radek Volf)
+* French (Guillaume Andreux)
+* German (Linguasoft)
+* Italian (James Garofalo)
+* Russian (Alexander Wolf)
+* Spanish (Jose Luis Parra)
 
-If you would like to volunteer to translate this plugin into another language, or would like to update an existing file to include any missing translation text, please contact me at donnapep@gmail.com.
+If you would like to translate this plugin into another language, please review the [translation instructions](http://donnapeplinskie.com/wordpress-book-review-plugin/#translations) in the documentation.
 
 = Resources =
-* Full documentation for the WordPress Book Review Plugin can be found on my [blog](http://donnapeplinskie.com/wordpress-book-review-plugin/).
+* Full documentation for the WordPress Book Review Plugin can be found [here](http://donnapeplinskie.com/wordpress-book-review-plugin/).
 * Follow me on [Google+](https://plus.google.com/u/0/+DonnaPeplinskie/posts), [Twitter](https://twitter.com/donnapep) or [LinkedIn](http://www.linkedin.com/in/donnapeplinskie).
-* If you have questions or suggestions, please post them in the forum that can be found on the Support tab.
+* If you have questions or suggestions, please post them in the [support forum](https://wordpress.org/support/plugin/book-review).
 
 = About Me =
 * I’m a front-end web developer with a fondness for WordPress. I blog about web development at [donnapeplinskie.com](http://donnapeplinskie.com/).
@@ -92,7 +77,7 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 3. Book Info on a Sample Post
 4. Archives by Title
 5. Archives by Genre
-6. Google Search Results Page
+6. Google Search Result
 
 == Changelog ==
 
