@@ -19,7 +19,7 @@ The plugin can also help to increase traffic to your site by creating better-loo
 
 And, if you’re interested in throwing monetization into the mix, the WordPress Book Review plugin makes that easy too!
 
-Sound pretty good? Then check out the [full documentation](http://donnapeplinskie.com/wordpress-book-review-plugin) to learn more about what the WordPress Book Review plugin can do for you!
+Sound pretty good? Then check out the [full documentation](http://donnapeplinskie.com/wordpress-book-review-plugin/) to learn more about what the WordPress Book Review plugin can do for you!
 
 = Internationalization =
 This plugin supports the following translations (with thanks to the translators!):
@@ -33,10 +33,10 @@ This plugin supports the following translations (with thanks to the translators!
 * Russian (Alexander Wolf)
 * Spanish (Jose Luis Parra)
 
-If you would like to translate this plugin into another language, please review the [translation instructions](http://donnapeplinskie.com/wordpress-book-review-plugin/#translations) in the documentation.
+If you would like to translate this plugin to another language, please review the Translations section of the [documentation](http://donnapeplinskie.com/wordpress-book-review-plugin/).
 
 = Resources =
-* Full documentation for the WordPress Book Review Plugin can be found [here](http://donnapeplinskie.com/wordpress-book-review-plugin/).
+* Official documentation for the WordPress Book Review Plugin can be found [here](http://donnapeplinskie.com/wordpress-book-review-plugin/).
 * Follow me on [Google+](https://plus.google.com/u/0/+DonnaPeplinskie/posts), [Twitter](https://twitter.com/donnapep) or [LinkedIn](http://www.linkedin.com/in/donnapeplinskie).
 * If you have problems, questions or suggestions, please post them in the [support forum](https://wordpress.org/support/plugin/book-review).
 
