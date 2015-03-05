@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: donnapep
 Tags: book, review, rating, book review, book blog, book blogger, book blogging
-Author URI: http://donnapeplinskie.com
-Plugin URI: http://donnapeplinskie.com/wordpress-book-review-plugin/
+Author URI: http://wpreviewplugins.com/
+Plugin URI: http://wpreviewplugins.com/book-review/
 Requires at least: 3.5
-Tested up to: 4.1
+Tested up to: 4.1.1
 Stable tag: 2.1.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -19,7 +19,10 @@ The plugin can also help to increase traffic to your site by creating better-loo
 
 And, if you’re interested in throwing monetization into the mix, the WordPress Book Review plugin makes that easy too!
 
-Sound pretty good? Then check out the [full documentation](http://donnapeplinskie.com/wordpress-book-review-plugin/) to learn more about what the WordPress Book Review plugin can do for you!
+Sound pretty good? Then check out the [full documentation](http://wpreviewplugins.com/book-review/) to learn more about what the WordPress Book Review plugin can do for you!
+
+= Feature Requests =
+For a comprehensive list of feature requests, or to vote on your favorites, please see the [Book Review Roadmap](https://trello.com/b/rlglE0Gf/book-review-roadmap). You can submit your own requests in the [Feature Requests forum](http://wpreviewplugins.com/support/forum/feature-requests/).
 
 = Internationalization =
 This plugin supports the following translations (with thanks to the translators!):
@@ -33,16 +36,16 @@ This plugin supports the following translations (with thanks to the translators!
 * Russian (Alexander Wolf)
 * Spanish (Jose Luis Parra)
 
-If you would like to translate this plugin to another language, please review the Translations section of the [documentation](http://donnapeplinskie.com/wordpress-book-review-plugin/).
+If you would like to translate this plugin to another language, please review the Translations section of the [documentation](http://wpreviewplugins.com/book-review/#translations).
 
 = Resources =
-* Official documentation for the WordPress Book Review Plugin can be found [here](http://donnapeplinskie.com/wordpress-book-review-plugin/).
+* Official documentation for the WordPress Book Review Plugin can be found [here](http://wpreviewplugins.com/book-review/).
 * Follow me on [Google+](https://plus.google.com/u/0/+DonnaPeplinskie/posts), [Twitter](https://twitter.com/donnapep) or [LinkedIn](http://www.linkedin.com/in/donnapeplinskie).
-* If you have problems, questions or suggestions, please post them in the [support forum](https://wordpress.org/support/plugin/book-review).
+* If you have problems, questions or suggestions, please post them in the [General Support forum](http://wpreviewplugins.com/support/forum/general-support/).
 
 = About Me =
 * I’m a front-end web developer with a fondness for WordPress. I blog about web and professional development at [donnapeplinskie.com](http://donnapeplinskie.com/).
-* I’m author of the [WordPress Book Review Plugin](http://wordpress.org/plugins/book-review/) and [WordPress Date and Time Widget](http://wordpress.org/plugins/date-and-time-widget/).
+* I’m author of the [WordPress Book Review Plugin](http://wpreviewplugins.com/book-review/) and [WordPress Date and Time Widget](http://wordpress.org/plugins/date-and-time-widget/).
 * I’m a developer advocate for [Rise Vision](http://risevision.com/).
 * I’m founder and contributor of the [Book Wookie](http://bookwookie.ca) book blog.
 
