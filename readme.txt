@@ -1,66 +1,63 @@
 === Plugin Name ===
 Contributors: donnapep
 Tags: book, review, rating, book review, book blog, book blogger, book blogging
-Author URI: http://donnapeplinskie.com
+Author URI: http://wpreviewplugins.com/
 Plugin URI: http://wpreviewplugins.com/book-review/
 Requires at least: 3.5
-Tested up to: 4.1
+Tested up to: 4.1.1
 Stable tag: 2.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add details such as title, author, cover photo, rating, purchase links and more to each of your book review posts. Show archives by title or genre.
+Save countless hours, drive more traffic to your site, and maybe even earn some extra money. Spend your time on what really matters - writing reviews!
 
 == Description ==
 
-The WordPress Book Review Plugin adds a *Book Info* section to regular posts and custom post types. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
+The WordPress Book Review plugin saves you time when writing your book review posts – no more copying and pasting or manually entering in a book’s details. Instead, you can focus on the important stuff, like actually writing your reviews!
 
-* ISBN (Only visible if a Google API Key has been entered on the *Book Review Settings* page)
-* Title (required)
-* Series
-* Author
-* Genre
-* Publisher
-* Release Date
-* Format
-* Pages
-* Source
-* Customized URLS (as defined by the settings)
-* Cover URL
-* Synopsis
-* Rating
-* Include post in archives
+The plugin can also help to increase traffic to your site by creating better-looking search results in Google that will make yours stand out from the rest.
 
-If the *Book Info* section has been filled out, these details (with the exception of ISBN) will appear in the post.
+And, if you’re interested in throwing monetization into the mix, the WordPress Book Review plugin makes that easy too!
 
-= Features =
-* Retrieve details about a book automatically from Google Books.
-* Show details like rating, author and published date in search engine results pages.
-* Position the review box either above or below the post's content.
-* Customizable background and border colours.
-* Ability to optionally show ratings on the home page when summary text is used.
-* Use the built-in star rating images or specify your own.
-* Configure text or image-based custom links.
-* Open your custom links in the same tab or in a new one.
-* Show an archive of your reviews by title or genre.
+Sound pretty good? Then check out the [full documentation](http://wpreviewplugins.com/book-review/) to learn more about what the WordPress Book Review plugin can do for you!
+
+= Feature Requests =
+For a comprehensive list of feature requests, or to vote on your favorites, please see the [Book Review Roadmap](https://trello.com/b/rlglE0Gf/book-review-roadmap). You can submit your own requests in the [Feature Requests forum](http://wpreviewplugins.com/support/forum/feature-requests/).
 
 = Internationalization =
-This plugin supports the following translations: Arabic, Chinese, Czech, French, German, Italian, Russian, and Spanish.
+This plugin supports the following translations (with thanks to the translators!):
 
-If you would like to volunteer to translate this plugin into another language, or would like to update an existing file to include any missing translation text, please review the [documentation](http://wpreviewplugins.com/book-review/#translations).
+* Arabic (منهل العدّاي‎)
+* Chinese (Vahi Chen)
+* Czech (Radek Volf)
+* French (Guillaume Andreux)
+* German (Linguasoft)
+* Italian (James Garofalo)
+* Russian (Alexander Wolf)
+* Spanish (Jose Luis Parra)
+
+If you would like to translate this plugin to another language, please review the Translations section of the [documentation](http://wpreviewplugins.com/book-review/#translations).
 
 = Resources =
-* Full documentation for the WordPress Book Review Plugin can be found on my [blog](http://wpreviewplugins.com/book-review/).
+* Official documentation for the WordPress Book Review Plugin can be found [here](http://wpreviewplugins.com/book-review/).
 * Follow me on [Google+](https://plus.google.com/u/0/+DonnaPeplinskie/posts), [Twitter](https://twitter.com/donnapep) or [LinkedIn](http://www.linkedin.com/in/donnapeplinskie).
-* If you have questions or suggestions, please post them in the forum that can be found on the Support tab.
+* If you have problems, questions or suggestions, please post them in the [General Support forum](http://wpreviewplugins.com/support/forum/general-support/).
 
 = About Me =
-* I’m a front-end web developer with a fondness for WordPress. I blog about web development at [donnapeplinskie.com](http://donnapeplinskie.com/).
+* I’m a front-end web developer with a fondness for WordPress. I blog about web and professional development at [donnapeplinskie.com](http://donnapeplinskie.com/).
+* I’m author of the [WordPress Book Review Plugin](http://wpreviewplugins.com/book-review/) and [WordPress Date and Time Widget](http://wordpress.org/plugins/date-and-time-widget/).
 * I’m a developer advocate for [Rise Vision](http://risevision.com/).
-* I’m author of the [WordPress Book Review Plugin](http://wordpress.org/plugins/book-review/) and [WordPress Date and Time Widget](http://wordpress.org/plugins/date-and-time-widget/).
 * I’m founder and contributor of the [Book Wookie](http://bookwookie.ca) book blog.
 
 == Installation ==
+
+1. In WordPress, go to *Plugins* > *Add Plugins*.
+1. Search for *book review plugin*.
+1. Click on *Install Now*.
+1. Click on *Activate Plugin*.
+1. Customize the settings by clicking on *Book Review* in the *Settings* menu.
+
+OR
 
 1. Download the plugin and extract it.
 1. Upload the `book-review` folder to the `/wp-content/plugins/` directory on your server.
@@ -83,7 +80,7 @@ The *Synopsis* field is meant to hold the summary or description of the book. It
 
 = Why is my title sorting on "A", "An" or "The" in the title archives? =
 
-Titles that start with "A", "An" or "The" should be sorted using the second word in the title. For example, *The Hunger Games* would be shown as *Hunger Games, The*. If you have a post that is not sorting this way, try going back into that post and re-saving it.
+Titles that start with "A", "An" or "The" are sorted using the second word in the title. For example, *The Hunger Games* would be shown as *Hunger Games, The*. If you have a post that is not sorting this way, try going back into that post and re-saving it.
 
 = Why is my post not showing up in the genre archives? =
 
@@ -91,7 +88,7 @@ Check to ensure that you have filled out the *Genre* field in the *Book Info* se
 
 = Why do the archives take a long time to load? =
 
-If you are showing thumbnails of the book covers in your archives, then you should be aware that thumbnails are only used in those themes that support Featured Images. If your theme does not support Featured Images, or if a post does not have a Featured Image set, then scaled-down versions of the full-size covers are used. The images are scaled down as per the *Thumbnail size* value in the *Media Settings*. Showing thumbnails in the archive(s) without using Featured Images will result in longer page load times. To aid in determining which images are thumbnails and which are scaled-down versions of the original image, you can click on any cover to see it shown at its true size. If the image is small, then you know a thumbnail is being used. Otherwise, you should go back into that particular post and set the Featured Image.
+If you are showing thumbnails of the book covers in your archives, then you should be aware that thumbnails are only used in those themes that support Featured Images. If your theme does not support Featured Images, or if a post does not have a Featured Image set, then scaled-down versions of the full-size covers are used. The images are scaled down as per the *Thumbnail size* value in the *Media Settings*. Showing thumbnails in the archive(s) without using Featured Images will result in longer page load times.
 
 == Screenshots ==
 
@@ -100,7 +97,7 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 3. Book Info on a Sample Post
 4. Archives by Title
 5. Archives by Genre
-6. Google Search Results Page
+6. Google Search Result
 
 == Changelog ==
 
