@@ -15,7 +15,7 @@ Add details such as title, author, cover photo, rating, purchase links and more 
 
 The WordPress Book Review Plugin adds a *Book Info* section to regular posts and custom post types. Fill this out whenever you would like to show more information about a particular book. Note that, at a minimum, *Title* must be specified in order for the information to show at the top of the post, and any fields that you leave blank will not appear. These fields include:
 
-* ISBN (Only visible if a Google API Key has been entered on the *Book Review Settings* page.)
+* ISBN (Only visible if a Google API Key has been entered on the *Book Review Settings* page)
 * Title (required)
 * Series
 * Author
@@ -47,7 +47,7 @@ If the *Book Info* section has been filled out, these details (with the exceptio
 = Internationalization =
 This plugin supports the following translations: Arabic, Chinese, Czech, French, German, Italian, Russian, and Spanish.
 
-If you would like to volunteer to translate this plugin into another language, or would like to update an existing file to include any missing translation text, please contact me at donnapep@gmail.com.
+If you would like to volunteer to translate this plugin into another language, or would like to update an existing file to include any missing translation text, please review the [documentation](http://wpreviewplugins.com/book-review/#translations).
 
 = Resources =
 * Full documentation for the WordPress Book Review Plugin can be found on my [blog](http://wpreviewplugins.com/book-review/).
@@ -69,7 +69,7 @@ If you would like to volunteer to translate this plugin into another language, o
 
 == Frequently Asked Questions ==
 
-= Why do I receive an error message when clicking on the *Get Book Info* button? =
+= Why do I receive an error message when clicking on the Get Book Info button? =
 
 The first thing you'll want to check is that you have created a Google API Key and that it has been entered correctly on the *Advanced* tab of the *Book Review Settings*.
 
