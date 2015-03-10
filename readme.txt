@@ -5,7 +5,7 @@ Author URI: http://wpreviewplugins.com/
 Plugin URI: http://wpreviewplugins.com/book-review/
 Requires at least: 3.5
 Tested up to: 4.1.1
-Stable tag: 2.1.9
+Stable tag: 2.1.10
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -101,6 +101,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 2.1.10 =
+* Fixed issue with rating images not showing for PHP versions older than 5.3.0.
+
 = 2.1.9 =
 * Added Review Box Border Width setting.
 * Removed tooltips from Book Review Settings.
@@ -192,6 +195,9 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.1.10 =
+Fixed issue with rating images not showing for PHP versions older than 5.3.0.
 
 = 2.1.9 =
 Added Review Box Border Width setting and removed tooltips from Book Review Settings page.
