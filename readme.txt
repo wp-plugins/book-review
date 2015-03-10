@@ -44,10 +44,10 @@ If you would like to translate this plugin to another language, please review th
 * If you have problems, questions or suggestions, please post them in the [General Support forum](http://wpreviewplugins.com/support/forum/general-support/).
 
 = About Me =
-* I’m a front-end web developer with a fondness for WordPress. I blog about web and professional development at [donnapeplinskie.com](http://donnapeplinskie.com/).
-* I’m author of the [WordPress Book Review Plugin](http://wpreviewplugins.com/book-review/) and [WordPress Date and Time Widget](http://wordpress.org/plugins/date-and-time-widget/).
-* I’m a developer advocate for [Rise Vision](http://risevision.com/).
+* I’m the founder of [WPReviewPlugins.com](http://wpreviewplugins.com/).
+* I’m a front-end developer & developer advocate for [Rise Vision](http://risevision.com/).
 * I’m founder and contributor of the [Book Wookie](http://bookwookie.ca) book blog.
+* I blog about web and professional development at [donnapeplinskie.com](http://donnapeplinskie.com/).
 
 == Installation ==
 
