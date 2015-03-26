@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: donnapep
-Tags: book, review, rating, book review, book blog, book blogger, book blogging
+Tags: blog, book, book blog, book blogger, book blogging, book review, google, multisite, posts, rating, review, seo, shortcode
 Author URI: http://wpreviewplugins.com/
 Plugin URI: http://wpreviewplugins.com/book-review/
 Requires at least: 3.5
