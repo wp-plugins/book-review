@@ -5,7 +5,7 @@ Author URI: http://wpreviewplugins.com/
 Plugin URI: http://wpreviewplugins.com/book-review/
 Requires at least: 3.5
 Tested up to: 4.1.1
-Stable tag: 2.1.10
+Stable tag: 2.1.11
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,8 +33,10 @@ This plugin supports the following translations (with thanks to the translators!
 * French (Guillaume Andreux)
 * German (Linguasoft)
 * Italian (James Garofalo)
+* Norwegian (Harald Indgul)
 * Russian (Alexander Wolf)
 * Spanish (Jose Luis Parra)
+* Swedish (Harald Indgul)
 
 If you would like to translate this plugin to another language, please review the Translations section of the [documentation](http://wpreviewplugins.com/book-review/#translations).
 
@@ -100,6 +102,11 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 6. Google Search Result
 
 == Changelog ==
+
+= 2.1.11 =
+* Fixed issue with styling of meta box for custom post types.
+* Fixed issue processing the Google Books API response when some fields are not present.
+* Added Swedish & Norwegian translation files.
 
 = 2.1.10 =
 * Fixed issue with rating images not showing for PHP versions older than 5.3.0.
@@ -195,6 +202,11 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 * Initial release.
 
 == Upgrade Notice ==
+
+= 2.1.11 =
+Fixed issue with styling of meta box for custom post types.
+Fixed issue processing the Google Books API response when some fields are not present.
+Added Swedish & Norwegian translation files.
 
 = 2.1.10 =
 Fixed issue with rating images not showing for PHP versions older than 5.3.0.
