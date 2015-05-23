@@ -4,8 +4,8 @@ Tags: blog, book, book blog, book blogger, book blogging, book review, google, m
 Author URI: http://wpreviewplugins.com/
 Plugin URI: http://wpreviewplugins.com/book-review/
 Requires at least: 3.5
-Tested up to: 4.1.1
-Stable tag: 2.1.11
+Tested up to: 4.2.2
+Stable tag: 2.1.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,6 +32,7 @@ This plugin supports the following translations (with thanks to the translators!
 * Czech (Radek Volf)
 * French (Guillaume Andreux)
 * German (Linguasoft)
+* Indonesian (Ardhi Sulaeman)
 * Italian (James Garofalo)
 * Norwegian (Harald Indgul)
 * Russian (Alexander Wolf)
@@ -102,6 +103,15 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 6. Google Search Result
 
 == Changelog ==
+
+= 2.1.12 =
+* New: Add Indonesian translation.
+* New: Add `book_review_links` filter for rendering links in review box.
+* Tweak: Eliminate use of `extract` function.
+* Tweak: Don't close `<input>` or `<img>` tags.
+* Fix: Escape all variables.
+* Fix: Links defined in the *Book Info* meta box were not being removed when cleared.
+* Fix: Spinner in *Book Info* meta box for WordPress 4.2 and higher.
 
 = 2.1.11 =
 * Fixed issue with styling of meta box for custom post types.
@@ -203,23 +213,8 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Upgrade Notice ==
 
-= 2.1.11 =
-Fixed issue with styling of meta box for custom post types.
-Fixed issue processing the Google Books API response when some fields are not present.
-Added Swedish & Norwegian translation files.
-
-= 2.1.10 =
-Fixed issue with rating images not showing for PHP versions older than 5.3.0.
-
-= 2.1.9 =
-Added Review Box Border Width setting and removed tooltips from Book Review Settings page.
-
-= 2.1.8 =
-Fixed data in Book Info section not updating when field cleared.
-Restructured code to conform to WordPress Plugin Boilerplate 3.0.
-
-= 2.1.7 =
-Fixed broken schema markup so that ratings, author and published date show in search engine results pages.
+= 2.1.12 =
+Addressed some security issues. Upgrade highly recommended.
 
 = 2.1.6 =
 Changed Book Review Settings to be a tabbed interface.
@@ -228,66 +223,7 @@ Added ability to set individual custom links to inactive.
 Added custom hooks for developers.
 Added Czech translation files.
 
-= 2.1.5 =
-Renamed Arabic translation files.
-
-= 2.1.4 =
-Added Arabic & French translation files.
-Fixed bug with Google Books API text not translating.
-
-= 2.1.3 =
-Added German translation files.
-
-= 2.1.2 =
-Fixed some text not translating on the Book Review Settings page.
-Added Russian translation files.
-
-= 2.1.1 =
-Refactored some of the code.
-Added Chinese translation files.
-
-= 2.1.0 =
-Added support for schema.org.
-Cover image in archives now links to related post.
-
-= 2.0.2 =
-Added Spanish translation files.
-Fixed issue with URLs not saving for posts.
-
-= 2.0.1 =
-Removed obsolete public-facing Javascript and CSS.
-
 = 2.0 =
 Added ability to auto-populate a book's details using the Google Books API.
 Added ability to format the Release Date.
 Refactored entire codebase.
-
-= 1.9 =
-Added Rating column to the manage posts screen.
-
-= 1.8 =
-Added support for custom post types.
-
-= 1.7 =
-Added ability to show book cover thumbnails and rating images in archives.
-
-= 1.6 =
-Archives now work with multisite.
-
-= 1.5 =
-Added Italian translation files.
-
-= 1.4 =
-Added support for internationalization.
-
-= 1.3 =
-Added a shortcode for showing archives by title or genre.
-
-= 1.2 =
-Added new Review Box Position setting for controlling the position of the review box.
-
-= 1.1 =
-Added optional Genre, Format and Pages fields. Bug fixes related to showing the book info on the home page and in the RSS feed.
-
-= 1.0 =
-Initial release.
