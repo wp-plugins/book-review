@@ -5,7 +5,7 @@ Author URI: http://wpreviewplugins.com/
 Plugin URI: http://wpreviewplugins.com/book-review/
 Requires at least: 3.5
 Tested up to: 4.2.2
-Stable tag: 2.1.12
+Stable tag: 2.1.13
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -111,6 +111,10 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 2.1.13 =
+* New: Add dismissible admin notice when plugin is first activated.
+* New: Add link to Google Developers Console text on Advanced tab.
+
 = 2.1.12 =
 * New: Add Indonesian translation.
 * New: Add `book_review_links` filter for rendering links in review box.
@@ -121,12 +125,12 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 * Fix: Spinner in *Book Info* meta box for WordPress 4.2 and higher.
 
 = 2.1.11 =
-* Fixed issue with styling of meta box for custom post types.
-* Fixed issue processing the Google Books API response when some fields are not present.
-* Added Swedish & Norwegian translation files.
+* New: Added Swedish & Norwegian translation files.
+* Fix: Fixed issue with styling of meta box for custom post types.
+* Fix: Fixed issue processing the Google Books API response when some fields are not present.
 
 = 2.1.10 =
-* Fixed issue with rating images not showing for PHP versions older than 5.3.0.
+* Fix: Fixed issue with rating images not showing for PHP versions older than 5.3.0.
 
 = 2.1.9 =
 * Added Review Box Border Width setting.
