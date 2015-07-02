@@ -5,7 +5,7 @@ Author URI: http://wpreviewplugins.com/
 Plugin URI: http://wpreviewplugins.com/book-review/
 Requires at least: 3.5
 Tested up to: 4.2.2
-Stable tag: 2.1.13
+Stable tag: 2.1.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -110,6 +110,11 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 6. Google Search Result
 
 == Changelog ==
+
+= 2.1.14 =
+* New: Add Country dropdown to Advanced tab of Book Review settings.
+* Tweak: Apply WordPress CSS class names to input elements.
+* Fix: Fix 403 error from Google Books API for some users.
 
 = 2.1.13 =
 * New: Add dismissible admin notice when plugin is first activated.
