@@ -4,8 +4,8 @@ Tags: blog, book, book blog, book blogger, book blogging, book review, google, m
 Author URI: http://wpreviewplugins.com/
 Plugin URI: http://wpreviewplugins.com/book-review/
 Requires at least: 3.5
-Tested up to: 4.2.2
-Stable tag: 2.1.14
+Tested up to: 4.3
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -110,6 +110,10 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 6. Google Search Result
 
 == Changelog ==
+
+= 2.2.0 =
+* New: Add ability to select post types to show book information for.
+* Tweak: Remove Release Date Format field. Format is now controlled via the Date Format field in Settings > General.
 
 = 2.1.14 =
 * New: Add Country dropdown to Advanced tab of Book Review settings.
