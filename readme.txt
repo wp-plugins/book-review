@@ -2,10 +2,10 @@
 Contributors: donnapep
 Tags: blog, book, book blog, book blogger, book blogging, book review, google, multisite, posts, rating, review, seo, shortcode
 Author URI: http://wpreviewplugins.com/
-Plugin URI: http://wpreviewplugins.com/book-review/
+Plugin URI: http://wpreviewplugins.com/downloads/book-review/
 Requires at least: 3.5
-Tested up to: 4.3
-Stable tag: 2.2.0
+Tested up to: 4.2.2
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,7 +22,7 @@ If you’re interested in throwing monetization into the mix, the WordPress Book
 
 Members of the Amazon Associates Program, or people who are thinking of becoming members, will definitely be interested in Affiliate Linkalizer for Amazon. This premium add-on will save you even more time and earn you even more money! To be entered for a chance to win Affiliate Linkalizer for Amazon free for 12 months, please fill out this short [survey](http://wpreviewplugins.com/affiliate-linkalizer/).
 
-Sound pretty good? Then check out the [full documentation](http://wpreviewplugins.com/book-review/) to learn more about what the WordPress Book Review plugin can do for you!
+Sound pretty good? Then check out the [full documentation](http://wpreviewplugins.com/documentation/) to learn more.
 
 = Feature Requests =
 For a comprehensive list of feature requests, or to vote on your favorites, please see the [Book Review Roadmap](https://trello.com/b/rlglE0Gf/book-review-roadmap). You can submit your own requests in the [Feature Requests forum](http://wpreviewplugins.com/support/forum/feature-requests/).
@@ -39,13 +39,14 @@ This plugin supports the following translations (with thanks to the translators!
 * Italian (James Garofalo)
 * Norwegian (Harald Indgul)
 * Russian (Alexander Wolf)
+* Serbian ([Ogi Djuraskovic](http://firstsiteguide.com/))
 * Spanish (Jose Luis Parra)
 * Swedish (Harald Indgul)
 
-If you would like to translate this plugin to another language, please review the Translations section of the [documentation](http://wpreviewplugins.com/book-review/#translations).
+If you would like to translate this plugin to another language, please review the instructions in the [documentation](http://wpreviewplugins.com/documentation/translate-book-review/).
 
 = Resources =
-* Official documentation for the WordPress Book Review Plugin can be found [here](http://wpreviewplugins.com/book-review/).
+* Official documentation for the WordPress Book Review Plugin can be found [here](http://wpreviewplugins.com/documentation/).
 * Follow me on [Google+](https://plus.google.com/u/0/+DonnaPeplinskie/posts), [Twitter](https://twitter.com/donnapep) or [LinkedIn](http://www.linkedin.com/in/donnapeplinskie).
 * If you have problems, questions or suggestions, please post them in the [General Support forum](http://wpreviewplugins.com/support/forum/general-support/).
 
@@ -80,7 +81,7 @@ While the Book Review plugin does support adding custom links to your reviews (i
 
 The first thing you'll want to check is that you have created a Google API Key and that it has been entered correctly on the *Advanced* tab of the *Book Review Settings*.
 
-This message can also appear if the IP address of your web server has not been entered correctly in the Google Developers Console. You will need to go back into the [Developers Console](https://code.google.com/apis/console) and enter the correct IP address. If you're still having trouble, try removing the IP address altogether. See the [documentation](http://wpreviewplugins.com/book-review/#advanced) for more information.
+This message can also appear if the IP address of your web server has not been entered correctly in the Google Developers Console. You will need to go back into the [Developers Console](https://code.google.com/apis/console) and enter the correct IP address. If you're still having trouble, try removing the IP address altogether. See the [documentation](http://wpreviewplugins.com/documentation/settings-advanced/) for more information.
 
 If all else fails, please leave a message in the [General Support forum](http://wpreviewplugins.com/support/forum/general-support/). Be sure to include the URL of your web site in your post.
 
@@ -110,6 +111,12 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 6. Google Search Result
 
 == Changelog ==
+
+= 2.2.1 =
+* New: Add Serbian translation.
+* New: Add `book_review_meta_box` hook for when *Book Info* meta box is added.
+* Tweak: Update website links.
+* Fix: Fix broken translation string on Advanced tab.
 
 = 2.2.0 =
 * New: Add ability to select post types to show book information for.
