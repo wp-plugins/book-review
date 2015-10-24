@@ -1,38 +1,45 @@
 === Plugin Name ===
 Contributors: donnapep
-Tags: blog, book, book blog, book blogger, book blogging, book review, google, multisite, posts, rating, review, seo, shortcode
-Author URI: http://wpreviewplugins.com/
-Plugin URI: http://wpreviewplugins.com/downloads/book-review/
+Tags: blog, affiliate, amazon, associates, book, book blog, book blogger, book blogging, book review, rating, review
+Author URI: http://donnapeplinskie.com/
+Plugin URI: http://wpreviewplugins.com/product/book-review/
 Requires at least: 3.5
-Tested up to: 4.2.2
-Stable tag: 2.2.1
+Tested up to: 4.3.1
+Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Save countless hours, drive more traffic to your site, and maybe even earn some extra money. Spend your time on what really matters - writing reviews!
+Save countless hours, drive more traffic to your site, and earn some extra income. Just by writing reviews.
 
 == Description ==
 
-The WordPress Book Review plugin saves you time when writing your book review posts – no more copying and pasting or manually entering in a book’s details. Instead, you can focus on the important stuff, like actually writing your reviews!
+= Save Time =
+Book Review saves you time when writing your reviews. No more copying and pasting or manually entering the details of a book. Instead, you provide the ISBN, and Book Review will automatically populate information like title, author, and even the cover photo for you!
 
-The plugin can also help to increase traffic to your site by creating better-looking search results in Google that will make yours stand out from the rest.
+= Increase Traffic =
+Book Review can help increase traffic to your site by making your Google search result stand out from the rest. And that means more users clicking through to visit your site.
 
-= Monetization =
-If you’re interested in throwing monetization into the mix, the WordPress Book Review plugin can help with its custom buy links feature.
+See the [*Screenshots* tab](https://wordpress.org/plugins/book-review/screenshots/) for an example of what your Google search result might look like.
 
-Members of the Amazon Associates Program, or people who are thinking of becoming members, will definitely be interested in Affiliate Linkalizer for Amazon. This premium add-on will save you even more time and earn you even more money! To be entered for a chance to win Affiliate Linkalizer for Amazon free for 12 months, please fill out this short [survey](http://wpreviewplugins.com/affiliate-linkalizer/).
+= Monetize Your Site =
+If you’re interested in throwing monetization into the mix, Book Review can help with its custom links feature. Just enter the affiliate URLs for Amazon, Barnes & Noble, or any other online store, and Book Review will take care of adding the links to each of your reviews.
 
-Sound pretty good? Then check out the [full documentation](http://wpreviewplugins.com/documentation/) to learn more.
+[Learn more](http://wpreviewplugins.com/product/book-review/#utm_source=wordpress.org&utm_medium=partner&utm_campaign=book+review&utm_content=description) about Book Review
 
-= Feature Requests =
-For a comprehensive list of feature requests, or to vote on your favorites, please see the [Book Review Roadmap](https://trello.com/b/rlglE0Gf/book-review-roadmap). You can submit your own requests in the [Feature Requests forum](http://wpreviewplugins.com/support/forum/feature-requests/).
+= Affiliate Linkalizer for Amazon =
+Although Amazon can be a great way to monetize your reviews, there’s a problem – being a member of the Amazon Associates Program in a particular country does *not* mean that you will automatically earn a commission on purchases made by users residing in other countries. And that can add up to a lot of lost revenue!
+
+Affiliate Linkalizer for Amazon helps to ensure that you maximize your earnings by regaining that lost income.
+
+[Learn more](http://wpreviewplugins.com/product/affiliate-linkalizer-amazon/#utm_source=wordpress.org&utm_medium=partner&utm_campaign=linkalizer&utm_content=description) about Affiliate Linkalizer for Amazon
 
 = Internationalization =
-This plugin supports the following translations (with thanks to the translators!):
+This plugin supports the following translations (with credit to the translators):
 
 * Arabic (منهل العدّاي‎)
 * Chinese (Vahi Chen)
 * Czech (Radek Volf)
+* Dutch (Petran Liket)
 * French (Guillaume Andreux)
 * German (Linguasoft)
 * Indonesian (Ardhi Sulaeman)
@@ -43,63 +50,54 @@ This plugin supports the following translations (with thanks to the translators!
 * Spanish (Jose Luis Parra)
 * Swedish (Harald Indgul)
 
-If you would like to translate this plugin to another language, please review the instructions in the [documentation](http://wpreviewplugins.com/documentation/translate-book-review/).
+If you would like to translate Book Review into another language, please see the instructions in the [documentation](http://wpreviewplugins.com/documentation/translate-book-review/).
 
 = Resources =
-* Official documentation for the WordPress Book Review Plugin can be found [here](http://wpreviewplugins.com/documentation/).
+* Official documentation for Book Review can be found at [WP Review Plugins](http://wpreviewplugins.com/documentation/).
+* If you have problems, questions or suggestions, please post them to the [Book Review Support](http://wpreviewplugins.com/support/forum/general-support/) forum.
+* For a comprehensive list of feature requests, or to vote for your favorites, please see the [Book Review Roadmap](https://trello.com/b/rlglE0Gf/book-review-roadmap).
+* You can submit your own requests in the [Feature Requests forum](http://wpreviewplugins.com/support/forum/feature-requests/).
 * Follow me on [Google+](https://plus.google.com/u/0/+DonnaPeplinskie/posts), [Twitter](https://twitter.com/donnapep) or [LinkedIn](http://www.linkedin.com/in/donnapeplinskie).
-* If you have problems, questions or suggestions, please post them in the [General Support forum](http://wpreviewplugins.com/support/forum/general-support/).
 
 = About Me =
-* I’m the founder of [WPReviewPlugins.com](http://wpreviewplugins.com/).
-* I’m a front-end developer & developer advocate for [Rise Vision](http://risevision.com/).
-* I’m founder and contributor of the [Book Wookie](http://bookwookie.ca) book blog.
+* I’m the founder of [WP Review Plugins](http://wpreviewplugins.com/).
+* I’m the founder of the [Book Wookie](http://bookwookie.ca) book blog.
 * I blog about web and professional development at [donnapeplinskie.com](http://donnapeplinskie.com/).
 
 == Installation ==
 
-1. In WordPress, go to *Plugins* > *Add Plugins*.
-1. Search for *book review plugin*.
-1. Click on *Install Now*.
-1. Click on *Activate Plugin*.
-1. Customize the settings by clicking on *Book Review* in the *Settings* menu.
+1. In WordPress, go to *Plugins* > *Add New*.
+1. In the *Search Plugins* field, enter "Book Review".
+1. Click *Install Now* to install the plugin.
+1. Click *Activate Plugin* to activate the plugin.
+1. Configure the settings by going to *Settings* > *Book Review*.
 
 OR
 
 1. Download the plugin and extract it.
 1. Upload the `book-review` folder to the `/wp-content/plugins/` directory on your server.
 1. Activate the plugin through the *Plugins* menu in WordPress.
-1. Customize the settings by clicking on *Book Review* in the *Settings* menu.
+1. Configure the settings by going to *Settings* > *Book Review*.
 
 == Frequently Asked Questions ==
 
-= Does the Book Review plugin integrate with the Amazon Associates Program? =
-
-While the Book Review plugin does support adding custom links to your reviews (including Amazon), the upcoming [Affiliate Linkalizer for Amazon](http://wpreviewplugins.com/affiliate-linkalizer/) plugin will make that process much easier by automatically constructing the URL for your Amazon buy links.
-
 = Why do I receive an error message when clicking on the Get Book Info button? =
 
-The first thing you'll want to check is that you have created a Google API Key and that it has been entered correctly on the *Advanced* tab of the *Book Review Settings*.
+Please follow these steps to resolve the error:
 
-This message can also appear if the IP address of your web server has not been entered correctly in the Google Developers Console. You will need to go back into the [Developers Console](https://code.google.com/apis/console) and enter the correct IP address. If you're still having trouble, try removing the IP address altogether. See the [documentation](http://wpreviewplugins.com/documentation/settings-advanced/) for more information.
+1. Check that you have created a [Google API Key](http://wpreviewplugins.com/documentation/settings-advanced/), and that it has been entered correctly on the *Advanced* tab of the *Book Review Settings*.
+1. Ensure that you have selected an appropriate value from the *Country* dropdown on the *Advanced* tab of the *Book Review Settings*.
+1. Double-check that you have entered your server's IP address correctly in the [Google Developers Console](https://code.google.com/apis/console).
+1. Try removing the IP address altogether and wait a few minutes before trying again.
+1. If all else fails, please leave a message in the [Book Review Support](http://wpreviewplugins.com/support/forum/general-support/) forum. Be sure to include your website's URL and the IP address in your post.
 
-If all else fails, please leave a message in the [General Support forum](http://wpreviewplugins.com/support/forum/general-support/). Be sure to include the URL of your web site in your post.
+= Does Book Review integrate with the Amazon Associates Program? =
+
+While Book Review supports adding custom links to your reviews (including Amazon), [Affiliate Linkalizer for Amazon](http://wpreviewplugins.com/product/affiliate-linkalizer-amazon/#utm_source=wordpress.org&utm_medium=partner&utm_campaign=linkalizer&utm_content=faq) simplifies the process by automatically constructing the URL for your Amazon buy links.
 
 = What is the Synopsis field for? =
 
-The *Synopsis* field is meant to hold the summary or description of the book. It is not where you are intended to write your review. You should write your review in the regular WordPress editor at the top of the page, although if you prefer you can certainly write it inside the *Synopsis* editor instead. Be aware that if you do that, the custom links will show at the very bottom of your post, rather than directly below the book's description and cover image.
-
-= Why is my title sorting on "A", "An" or "The" in the title archives? =
-
-Titles that start with "A", "An" or "The" are sorted using the second word in the title. For example, *The Hunger Games* would be shown as *Hunger Games, The*. If you have a post that is not sorting this way, try going back into that post and re-saving it.
-
-= Why is my post not showing up in the genre archives? =
-
-Check to ensure that you have filled out the *Genre* field in the *Book Info* section of the post, and that the *Include post in archives* checkbox is selected.
-
-= Why do the archives take a long time to load? =
-
-If you are showing thumbnails of the book covers in your archives, then you should be aware that thumbnails are only used in those themes that support Featured Images. If your theme does not support Featured Images, or if a post does not have a Featured Image set, then scaled-down versions of the full-size covers are used. The images are scaled down as per the *Thumbnail size* value in the *Media Settings*. Showing thumbnails in the archive(s) without using Featured Images will result in longer page load times.
+The *Synopsis* field is meant to hold the summary or description of the book. It is not where you are intended to write your review. You should write your review in the WordPress editor at the top of the page, although if you prefer you can certainly write it inside the *Synopsis* editor instead. Be aware that if you do that, the custom links will show at the very bottom of your post, rather than directly below the book's description and cover image.
 
 == Screenshots ==
 
@@ -112,11 +110,16 @@ If you are showing thumbnails of the book covers in your archives, then you shou
 
 == Changelog ==
 
+= 2.2.2 =
+* New: Add Dutch translation.
+* Tweak: Internationalize countries on *Advanced* tab.
+* Fix: Fix *Format* not showing in review box.
+
 = 2.2.1 =
 * New: Add Serbian translation.
 * New: Add `book_review_meta_box` hook for when *Book Info* meta box is added.
 * Tweak: Update website links.
-* Fix: Fix broken translation string on Advanced tab.
+* Fix: Fix broken translation string on *Advanced* tab.
 
 = 2.2.0 =
 * New: Add ability to select post types to show book information for.
