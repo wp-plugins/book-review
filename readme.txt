@@ -5,7 +5,7 @@ Author URI: http://donnapeplinskie.com/
 Plugin URI: http://wpreviewplugins.com/product/book-review/
 Requires at least: 3.5
 Tested up to: 4.3.1
-Stable tag: 2.2.2
+Stable tag: 2.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ Save countless hours, drive more traffic to your site, and earn some extra incom
 == Description ==
 
 = Save Time =
-Book Review saves you time when writing your reviews. No more copying and pasting or manually entering the details of a book. Instead, you provide the ISBN, and Book Review will automatically populate information like title, author, and even the cover photo for you!
+Book Review saves you time when writing your reviews. No more copying and pasting or manually entering the details of a book. Instead, you provide the ISBN, and Book Review will automatically populate information like title, author, and even the cover photo for you.
 
 = Increase Traffic =
 Book Review can help increase traffic to your site by making your Google search result stand out from the rest. And that means more users clicking through to visit your site.
@@ -24,14 +24,14 @@ See the [*Screenshots* tab](https://wordpress.org/plugins/book-review/screenshot
 = Monetize Your Site =
 If you’re interested in throwing monetization into the mix, Book Review can help with its custom links feature. Just enter the affiliate URLs for Amazon, Barnes & Noble, or any other online store, and Book Review will take care of adding the links to each of your reviews.
 
-[Learn more](http://wpreviewplugins.com/product/book-review/#utm_source=wordpress.org&utm_medium=partner&utm_campaign=book+review&utm_content=description) about Book Review
+[Learn more about Book Review](http://wpreviewplugins.com/product/book-review/#utm_source=wordpress.org&utm_medium=partner&utm_campaign=book+review&utm_content=description)
 
 = Affiliate Linkalizer for Amazon =
 Although Amazon can be a great way to monetize your reviews, there’s a problem – being a member of the Amazon Associates Program in a particular country does *not* mean that you will automatically earn a commission on purchases made by users residing in other countries. And that can add up to a lot of lost revenue!
 
-Affiliate Linkalizer for Amazon helps to ensure that you maximize your earnings by regaining that lost income.
+Affiliate Linkalizer for Amazon is a premium extension for Book Review that ensures you maximize your earnings by regaining that lost income.
 
-[Learn more](http://wpreviewplugins.com/product/affiliate-linkalizer-amazon/#utm_source=wordpress.org&utm_medium=partner&utm_campaign=linkalizer&utm_content=description) about Affiliate Linkalizer for Amazon
+[Learn more about Affiliate Linkalizer for Amazon](http://wpreviewplugins.com/product/affiliate-linkalizer-amazon/#utm_source=wordpress.org&utm_medium=partner&utm_campaign=linkalizer&utm_content=description)
 
 = Internationalization =
 This plugin supports the following translations (with credit to the translators):
@@ -109,6 +109,9 @@ The *Synopsis* field is meant to hold the summary or description of the book. It
 6. Google Search Result
 
 == Changelog ==
+
+= 2.2.3 =
+* Tweak: Update admin notice that shows when plugin is first activated.
 
 = 2.2.2 =
 * New: Add Dutch translation.
